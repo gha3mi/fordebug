@@ -1,4 +1,4 @@
-name = "puredebug"
+name = "fordebug"
 version = "0.1.0"
 license = "license"
 author = "Seyed Ali Ghasemi"
@@ -26,5 +26,3 @@ source-form = "free"
 name="test1"
 source-dir="test"
 main="test1.f90"
-
-
