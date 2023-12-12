@@ -10,10 +10,8 @@ contains
 
    pure subroutine pure_subroutine(x, n, y)
 
-      use iso_fortran_env, only: int32, int64, real32, real64 ! puredebug requires this line
-      use fortime                                             ! puredebug requires this line
+      use fordebug
       implicit none
-      include 'puredebug.inc'                                 ! puredebug requires this line
 
       real(rk), intent(in)               :: x
       integer,  intent(in)               :: n
