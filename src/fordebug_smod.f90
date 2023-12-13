@@ -82,9 +82,6 @@ subroutine impure_write(&
    R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, &
    R2i32, R2r32, R2c32, R2i64, R2r64, R2c64, &
    access)
-   !> author: Seyed Ali Ghasemi
-   !! This subroutine is intended to be used for debugging purposes only.
-   !! Prints information to the screen or a file.
    use iso_fortran_env, only: int32, int64, real32, real64
    implicit none
    include 'pwrite.inc'
