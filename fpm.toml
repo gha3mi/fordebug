@@ -22,6 +22,11 @@ implicit-typing = false
 implicit-external = false
 source-form = "free"
 
+[[example]]
+name       = "demo"
+source-dir = "example"
+main       = "demo.f90"
+
 [[test]]
 name="test1"
 source-dir="test"
