@@ -9,7 +9,7 @@
 
 **ForDebug**: A Fortran library designed for debugging Fortran code, especially within pure procedures.
 
-<span style="font-size: larger; font-weight: bold; color: red;">Use of this library is not standards conforming and you can expect things to break in plenty of situations. It should be used only for debugging purposes.</span>
+**USE OF THIS LIBRARY IS NOT STANDARDS CONFORMING AND YOU CAN EXPECT THINGS TO BREAK IN PLENTY OF SITUATIONS. IT SHOULD BE USED ONLY FOR DEBUGGING PURPOSES**
 
 
 
