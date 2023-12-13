@@ -1,7 +1,7 @@
 project:             ForDebug
 version:             {!VERSION!}
 year:                2023
-project_github:      https://github.com/gha3mi/forimage
+project_github:      https://github.com/gha3mi/fordebug
 author:              Seyed Ali Ghasemi
 email:               info@gha3mi.com
 github:              https://github.com/gha3mi
