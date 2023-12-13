@@ -1,5 +1,5 @@
 character(*),     intent(in), optional :: message    !! Message to print
-character(*),     intent(in), optional :: file_name  !! File to write to
+character(*),     intent(in), optional :: file       !! File to write to
 character(*),     intent(in), optional :: format     !! Format to use for printing
 
 character(*),     intent(in), optional :: R0ch       !! Rank=0, character

@@ -13,7 +13,7 @@ module fordebug
       !===============================================================================
       !> author: Seyed Ali Ghasemi
       pure module subroutine pwrite(&
-         message, format, file_name, &
+         message, format, file, &
          R0i32, R0r32, R0c32, R0i64, R0r64, R0c64, R0ch, &
          R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, &
          R2i32, R2r32, R2c32, R2i64, R2r64, R2c64, &
