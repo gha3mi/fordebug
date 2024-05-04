@@ -1,7 +1,7 @@
 module fordebug
 
    use iso_fortran_env, only: int32, int64, real32, real64
-   use fortime, only: timer, timer_start, timer_stop
+   use fortime, only: timer
 
    implicit none
 

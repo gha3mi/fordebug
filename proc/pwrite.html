@@ -1,3 +1,5 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +19,8 @@
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -70,8 +73,7 @@
             <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
                  title=" 0.3% of total for procedures.">3 statements</a>
             </li>
 
@@ -132,7 +134,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>module procedure pwrite <small>pure module subroutine pwrite(message, format, file, R0i32, R0r32, R0c32, R0i64, R0r64, R0c64, R0ch, R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, R2i32, R2r32, R2c32, R2i64, R2r64, R2c64, access)</small>  
-    <a href='../interface/pwrite.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+    <a href="../interface/pwrite.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
 </h2>
     
 
@@ -151,7 +153,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-message"></span>
+              <span class="anchor" id="variable-message~5"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -166,7 +168,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-format"></span>
+              <span class="anchor" id="variable-format~3"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -181,7 +183,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-file"></span>
+              <span class="anchor" id="variable-file~3"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -196,7 +198,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0i32"></span>
+              <span class="anchor" id="variable-r0i32~3"></span>
               integer(kind=int32),
             </td>
 <td>intent(in),</td>
@@ -211,7 +213,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0r32"></span>
+              <span class="anchor" id="variable-r0r32~3"></span>
               real(kind=real32),
             </td>
 <td>intent(in),</td>
@@ -226,7 +228,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0c32"></span>
+              <span class="anchor" id="variable-r0c32~3"></span>
               complex(kind=real32),
             </td>
 <td>intent(in),</td>
@@ -241,7 +243,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0i64"></span>
+              <span class="anchor" id="variable-r0i64~3"></span>
               integer(kind=int64),
             </td>
 <td>intent(in),</td>
@@ -256,7 +258,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0r64"></span>
+              <span class="anchor" id="variable-r0r64~3"></span>
               real(kind=real64),
             </td>
 <td>intent(in),</td>
@@ -271,7 +273,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0c64"></span>
+              <span class="anchor" id="variable-r0c64~3"></span>
               complex(kind=real64),
             </td>
 <td>intent(in),</td>
@@ -286,7 +288,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0ch"></span>
+              <span class="anchor" id="variable-r0ch~3"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -301,7 +303,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r1i32"></span>
+              <span class="anchor" id="variable-r1i32~3"></span>
               integer(kind=int32),
             </td>
 <td>intent(in),</td>
@@ -316,7 +318,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r1r32"></span>
+              <span class="anchor" id="variable-r1r32~3"></span>
               real(kind=real32),
             </td>
 <td>intent(in),</td>
@@ -331,7 +333,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r1c32"></span>
+              <span class="anchor" id="variable-r1c32~3"></span>
               complex(kind=real32),
             </td>
 <td>intent(in),</td>
@@ -346,7 +348,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r1i64"></span>
+              <span class="anchor" id="variable-r1i64~3"></span>
               integer(kind=int64),
             </td>
 <td>intent(in),</td>
@@ -361,7 +363,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r1r64"></span>
+              <span class="anchor" id="variable-r1r64~3"></span>
               real(kind=real64),
             </td>
 <td>intent(in),</td>
@@ -376,7 +378,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r1c64"></span>
+              <span class="anchor" id="variable-r1c64~3"></span>
               complex(kind=real64),
             </td>
 <td>intent(in),</td>
@@ -391,7 +393,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r2i32"></span>
+              <span class="anchor" id="variable-r2i32~3"></span>
               integer(kind=int32),
             </td>
 <td>intent(in),</td>
@@ -406,7 +408,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r2r32"></span>
+              <span class="anchor" id="variable-r2r32~3"></span>
               real(kind=real32),
             </td>
 <td>intent(in),</td>
@@ -421,7 +423,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r2c32"></span>
+              <span class="anchor" id="variable-r2c32~3"></span>
               complex(kind=real32),
             </td>
 <td>intent(in),</td>
@@ -436,7 +438,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r2i64"></span>
+              <span class="anchor" id="variable-r2i64~3"></span>
               integer(kind=int64),
             </td>
 <td>intent(in),</td>
@@ -451,7 +453,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r2r64"></span>
+              <span class="anchor" id="variable-r2r64~3"></span>
               real(kind=real64),
             </td>
 <td>intent(in),</td>
@@ -466,7 +468,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r2c64"></span>
+              <span class="anchor" id="variable-r2c64~3"></span>
               complex(kind=real64),
             </td>
 <td>intent(in),</td>
@@ -481,7 +483,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-access"></span>
+              <span class="anchor" id="variable-access~3"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -509,45 +511,45 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~pwrite~~CallsGraph Pages: 1 -->
-<svg id="procpwriteCallsGraph" width="352pt" height="32pt"
- viewBox="0.00 0.00 352.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="procpwriteCallsGraph" width="180pt" height="32pt"
+ viewBox="0.00 0.00 180.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="proc~~pwrite~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
 <title>proc~~pwrite~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 348,-28 348,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 176,-28 176,4 -4,4"/>
 <!-- proc~pwrite -->
 <g id="proc~~pwrite~~CallsGraph_node1" class="node">
 <title>proc~pwrite</title>
-<polygon fill="none" stroke="black" points="136,-24 0,-24 0,0 136,0 136,-24"/>
-<text text-anchor="middle" x="68" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">fordebug_smod::pwrite</text>
+<polygon fill="none" stroke="black" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">pwrite</text>
 </g>
 <!-- interface~impure_write -->
 <g id="proc~~pwrite~~CallsGraph_node2" class="node">
 <title>interface~impure_write</title>
-<g id="a_proc~~pwrite~~CallsGraph_node2"><a xlink:href=".././interface/impure_write.html" xlink:title="fordebug_smod::impure_write">
-<polygon fill="#a7506f" stroke="#a7506f" points="344,-24 172,-24 172,0 344,0 344,-24"/>
-<text text-anchor="middle" x="258" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordebug_smod::impure_write</text>
+<g id="a_proc~~pwrite~~CallsGraph_node2"><a xlink:href="../interface/impure_write.html" xlink:title="impure_write">
+<polygon fill="#a7506f" stroke="#a7506f" points="172,-24 90,-24 90,0 172,0 172,-24"/>
+<text text-anchor="middle" x="131" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">impure_write</text>
 </a>
 </g>
 </g>
 <!-- proc~pwrite&#45;&gt;interface~impure_write -->
 <g id="proc~~pwrite~~CallsGraph_edge1" class="edge">
 <title>proc~pwrite&#45;&gt;interface~impure_write</title>
-<path fill="none" stroke="#255000" d="M136.08,-12C144.41,-12 153.06,-12 161.72,-12"/>
-<polygon fill="#255000" stroke="#255000" points="161.87,-15.5 171.87,-12 161.87,-8.5 161.87,-15.5"/>
+<path fill="none" stroke="#ff0000" d="M54,-12C61.81,-12 70.65,-12 79.48,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="79.76,-15.5 89.76,-12 79.76,-8.5 79.76,-15.5"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
           <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                   <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <div class="modal-body">
+                <div class="modal-body">
 <p>Nodes of different colours represent the following: </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -639,14 +641,17 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForDebug was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForDebug
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-13T21:26:50.687226             </p>
+ on 2024-05-04T20:10:56.885338             </p>
           </div>
         </div>
         <br>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +19,8 @@
     <link href="./css/local.css" rel="stylesheet">
       <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="./js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -58,14 +61,18 @@
     </div>
 
     <div class="container">
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="p-5 mb-4 bg-light border rounded-3" id="jumbotron">
+  <!-- Main component for a primary marketing message or call to action -->
+    <div class="p-5 mb-4 bg-light border rounded-3" id="jumbotron">
+      
+        <p> Find us on&hellip;</p>
+      <p>
+        <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi/fordebug" role="button">GitHub</a>
         
-	<p> Find us on&hellip;</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi/fordebug" role="button">GitHub</a>
-        </p>
-      </div>
+        
+        
+        
+      </p>
+    </div>
 
       <div class="row" id='text'>
         <div class=col-md-8>
@@ -154,13 +161,20 @@ If you find any issues or would like to suggest improvements, please open an iss
 <p>This project draws inspiration from https://github.com/plevold/fortran-debug-utils.</p>
         </div>
           <div class="col-md-4">
-	        <div class="card card-body bg-light">
+            <div class="card card-body bg-light">
               <h2 class="card-title">Developer Info</h2>
               <h4 class="card-text">Seyed Ali Ghasemi</h4>
               <p class="card-text"></p>
                 <div class="text-center"><div class="btn-group" role="group">
                       <a class="btn btn-lg btn-primary" href="mailto:info@gha3mi.com"><i class="fa fa-envelope fa-lg"></i></a>
-                      <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi"><i class="fa fa-github fa-lg"></i></a>
+                    
+                    <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi"><i class="fa fa-github fa-lg"></i></a>
+                    
+                    
+                    
+                    
+                    
+                    
                 </div></div>
             </div>
           </div>
@@ -170,7 +184,7 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col-xs-6 col-sm-4">
             <div>
               <h3>Source Files</h3>
-              <ul><li><a href='./sourcefile/demo.f90.html'>demo.f90</a></li><li><a href='./sourcefile/fordebug.f90.html'>fordebug.f90</a></li><li><a href='./sourcefile/fordebug_smod.f90.html'>fordebug_smod.f90</a></li></ul>
+              <ul><li><a href='sourcefile/demo.f90.html'>demo.f90</a></li><li><a href='sourcefile/fordebug.f90.html'>fordebug.f90</a></li><li><a href='sourcefile/fordebug_smod.f90.html'>fordebug_smod.f90</a></li></ul>
             </div>
             <div>
               <ul>
@@ -181,7 +195,7 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col-xs-6 col-sm-4">
             <div>
               <h3>Modules</h3>
-              <ul><li><a href='./module/fordebug.html'>fordebug</a></li></ul>
+              <ul><li><a href='module/fordebug.html'>fordebug</a></li></ul>
             </div>
             <div>
               <ul>
@@ -192,7 +206,7 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col-xs-6 col-sm-4">
             <div>
               <h3>Procedures</h3>
-              <ul><li><a href='./proc/impure_timer_start.html'>impure_timer_start</a></li><li><a href='./interface/impure_timer_start.html'>impure_timer_start</a></li><li><a href='./proc/impure_timer_stop.html'>impure_timer_stop</a></li><li><a href='./interface/impure_timer_stop.html'>impure_timer_stop</a></li><li><a href='./proc/impure_write.html'>impure_write</a></li><li><a href='./interface/impure_write.html'>impure_write</a></li><li><a href='./interface/ptimer_start.html'>ptimer_start</a></li><li><a href='./interface/ptimer_stop.html'>ptimer_stop</a></li><li><a href='./proc/pure_subroutine.html'>pure_subroutine</a></li><li><a href='./interface/pwrite.html'>pwrite</a></li></ul>
+              <ul><li><a href='proc/impure_timer_start.html'>impure_timer_start</a></li><li><a href='interface/impure_timer_start.html'>impure_timer_start</a></li><li><a href='proc/impure_timer_stop.html'>impure_timer_stop</a></li><li><a href='interface/impure_timer_stop.html'>impure_timer_stop</a></li><li><a href='proc/impure_write.html'>impure_write</a></li><li><a href='interface/impure_write.html'>impure_write</a></li><li><a href='interface/ptimer_start.html'>ptimer_start</a></li><li><a href='interface/ptimer_stop.html'>ptimer_stop</a></li><li><a href='proc/pure_subroutine.html'>pure_subroutine</a></li><li><a href='interface/pwrite.html'>pwrite</a></li></ul>
             </div>
             <div>
               <ul>
@@ -206,14 +220,17 @@ If you find any issues or would like to suggest improvements, please open an iss
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForDebug was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForDebug
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-13T21:26:50.687226             </p>
+ on 2024-05-04T20:10:56.885338             </p>
           </div>
         </div>
         <br>

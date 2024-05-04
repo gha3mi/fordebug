@@ -1,3 +1,5 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +19,8 @@
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -69,8 +72,7 @@
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
                  title="90.1% of total for source files.">688 statements</a>
             </li>
 
@@ -183,7 +185,7 @@
 <!-- sourcefile~fordebug.f90 -->
 <g id="sourcefile~~fordebug_smod.f90~~EfferentGraph_node2" class="node">
 <title>sourcefile~fordebug.f90</title>
-<g id="a_sourcefile~~fordebug_smod.f90~~EfferentGraph_node2"><a xlink:href=".././sourcefile/fordebug.f90.html" xlink:title="fordebug.f90">
+<g id="a_sourcefile~~fordebug_smod.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/fordebug.f90.html" xlink:title="fordebug.f90">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="82,-24 0,-24 0,0 82,0 82,-24"/>
 <text text-anchor="middle" x="41" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordebug.f90</text>
 </a>
@@ -192,22 +194,22 @@
 <!-- sourcefile~fordebug_smod.f90&#45;&gt;sourcefile~fordebug.f90 -->
 <g id="sourcefile~~fordebug_smod.f90~~EfferentGraph_edge1" class="edge">
 <title>sourcefile~fordebug_smod.f90&#45;&gt;sourcefile~fordebug.f90</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M117.82,-12C109.41,-12 100.79,-12 92.52,-12"/>
-<polygon fill="#255000" stroke="#255000" points="92.28,-8.5 82.28,-12 92.28,-15.5 92.28,-8.5"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M117.82,-12C109.41,-12 100.79,-12 92.52,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="92.28,-8.5 82.28,-12 92.28,-15.5 92.28,-8.5"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#EfferentGraph-help-text">Help</a></div>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#EfferentGraph-help-text">Help</a>
+          </div>
           <div class="modal fade" id="EfferentGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                   <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <div class="modal-body">
+                <div class="modal-body">
 <p>Nodes of different colours represent the following: </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -1001,7 +1003,7 @@ large graphs.</div>
 <a id="ln-749" name="ln-749" href="#ln-749"></a><span class="w">   </span><span class="k">implicit none</span>
 <a id="ln-750" name="ln-750" href="#ln-750"></a><span class="k">   type</span><span class="p">(</span><span class="n">timer</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span>
 <a id="ln-751" name="ln-751" href="#ln-751"></a>
-<a id="ln-752" name="ln-752" href="#ln-752"></a><span class="w">   </span><span class="k">call </span><span class="n">timer_start</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a id="ln-752" name="ln-752" href="#ln-752"></a><span class="w">   </span><span class="k">call </span><span class="n">t</span><span class="p">%</span><span class="n">timer_start</span><span class="p">()</span>
 <a id="ln-753" name="ln-753" href="#ln-753"></a><span class="k">end subroutine </span><span class="n">impure_timer_start</span>
 <a id="ln-754" name="ln-754" href="#ln-754"></a><span class="c">!===============================================================================</span>
 <a id="ln-755" name="ln-755" href="#ln-755"></a>
@@ -1014,7 +1016,7 @@ large graphs.</div>
 <a id="ln-762" name="ln-762" href="#ln-762"></a><span class="k">   type</span><span class="p">(</span><span class="n">timer</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span>
 <a id="ln-763" name="ln-763" href="#ln-763"></a><span class="w">   </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">message</span>
 <a id="ln-764" name="ln-764" href="#ln-764"></a>
-<a id="ln-765" name="ln-765" href="#ln-765"></a><span class="w">   </span><span class="k">call </span><span class="n">timer_stop</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
+<a id="ln-765" name="ln-765" href="#ln-765"></a><span class="w">   </span><span class="k">call </span><span class="n">t</span><span class="p">%</span><span class="n">timer_stop</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">)</span>
 <a id="ln-766" name="ln-766" href="#ln-766"></a><span class="k">end subroutine </span><span class="n">impure_timer_stop</span>
 <a id="ln-767" name="ln-767" href="#ln-767"></a><span class="c">!===============================================================================</span>
 </pre></div>
@@ -1028,14 +1030,17 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForDebug was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForDebug
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-13T21:26:50.687226             </p>
+ on 2024-05-04T20:10:56.885338             </p>
           </div>
         </div>
         <br>

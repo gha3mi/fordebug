@@ -1,3 +1,5 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +20,8 @@
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -65,9 +68,18 @@
 			 <table class="table table-striped">
 			 <thead><tr><th>File</th><th>Description</th></tr></thead>
 			 <tbody>
-			   <tr><td><a href='../sourcefile/demo.f90.html'>demo.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/fordebug.f90.html'>fordebug.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/fordebug_smod.f90.html'>fordebug_smod.f90</a></td><td></td></tr>
+			   <tr>
+                 <td><a href='../sourcefile/demo.f90.html'>demo.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/fordebug.f90.html'>fordebug.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/fordebug_smod.f90.html'>fordebug_smod.f90</a></td>
+                 <td></td>
+               </tr>
 			 </tbody></table>
 			 <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -83,7 +95,7 @@
 <!-- sourcefile~demo.f90 -->
 <g id="file~~graph~~FileGraph_node1" class="node">
 <title>sourcefile~demo.f90</title>
-<g id="a_file~~graph~~FileGraph_node1"><a xlink:href=".././sourcefile/demo.f90.html" xlink:title="demo.f90">
+<g id="a_file~~graph~~FileGraph_node1"><a xlink:href="../sourcefile/demo.f90.html" xlink:title="demo.f90">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="89.5,-66 26.5,-66 26.5,-42 89.5,-42 89.5,-66"/>
 <text text-anchor="middle" x="58" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo.f90</text>
 </a>
@@ -92,7 +104,7 @@
 <!-- sourcefile~fordebug.f90 -->
 <g id="file~~graph~~FileGraph_node2" class="node">
 <title>sourcefile~fordebug.f90</title>
-<g id="a_file~~graph~~FileGraph_node2"><a xlink:href=".././sourcefile/fordebug.f90.html" xlink:title="fordebug.f90">
+<g id="a_file~~graph~~FileGraph_node2"><a xlink:href="../sourcefile/fordebug.f90.html" xlink:title="fordebug.f90">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="234,-45 152,-45 152,-21 234,-21 234,-45"/>
 <text text-anchor="middle" x="193" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordebug.f90</text>
 </a>
@@ -101,13 +113,13 @@
 <!-- sourcefile~fordebug.f90&#45;&gt;sourcefile~demo.f90 -->
 <g id="file~~graph~~FileGraph_edge1" class="edge">
 <title>sourcefile~fordebug.f90&#45;&gt;sourcefile~demo.f90</title>
-<path fill="none" stroke="#255000" d="M151.73,-39.36C135.27,-41.96 116.26,-44.96 99.75,-47.57"/>
-<polygon fill="#255000" stroke="#255000" points="99.17,-44.11 89.83,-49.13 100.26,-51.03 99.17,-44.11"/>
+<path fill="none" stroke="#ff0000" d="M151.73,-39.36C135.27,-41.96 116.26,-44.96 99.75,-47.57"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="99.17,-44.11 89.83,-49.13 100.26,-51.03 99.17,-44.11"/>
 </g>
 <!-- sourcefile~fordebug_smod.f90 -->
 <g id="file~~graph~~FileGraph_node3" class="node">
 <title>sourcefile~fordebug_smod.f90</title>
-<g id="a_file~~graph~~FileGraph_node3"><a xlink:href=".././sourcefile/fordebug_smod.f90.html" xlink:title="fordebug_smod.f90">
+<g id="a_file~~graph~~FileGraph_node3"><a xlink:href="../sourcefile/fordebug_smod.f90.html" xlink:title="fordebug_smod.f90">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="116,-24 0,-24 0,0 116,0 116,-24"/>
 <text text-anchor="middle" x="58" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordebug_smod.f90</text>
 </a>
@@ -116,22 +128,22 @@
 <!-- sourcefile~fordebug.f90&#45;&gt;sourcefile~fordebug_smod.f90 -->
 <g id="file~~graph~~FileGraph_edge2" class="edge">
 <title>sourcefile~fordebug.f90&#45;&gt;sourcefile~fordebug_smod.f90</title>
-<path fill="none" stroke="#002505" d="M151.73,-26.64C143.71,-25.38 135.08,-24.01 126.43,-22.65"/>
-<polygon fill="#002505" stroke="#002505" points="126.72,-19.15 116.3,-21.05 125.63,-26.06 126.72,-19.15"/>
+<path fill="none" stroke="#0000ff" d="M151.73,-26.64C143.71,-25.38 135.08,-24.01 126.43,-22.65"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="126.72,-19.15 116.3,-21.05 125.63,-26.06 126.72,-19.15"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#FileGraph-help-text">Help</a></div>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#FileGraph-help-text">Help</a>
+          </div>
           <div class="modal fade" id="FileGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                   <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <div class="modal-body">
+                <div class="modal-body">
 <p>Nodes of different colours represent the following: </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -176,14 +188,17 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForDebug was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForDebug
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-13T21:26:50.687226             </p>
+ on 2024-05-04T20:10:56.885338             </p>
           </div>
         </div>
         <br>

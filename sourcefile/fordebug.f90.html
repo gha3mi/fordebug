@@ -1,3 +1,5 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +19,8 @@
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -69,8 +72,7 @@
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
                  title=" 5.4% of total for source files.">41 statements</a>
             </li>
 
@@ -170,7 +172,7 @@
 <!-- sourcefile~demo.f90 -->
 <g id="sourcefile~~fordebug.f90~~AfferentGraph_node2" class="node">
 <title>sourcefile~demo.f90</title>
-<g id="a_sourcefile~~fordebug.f90~~AfferentGraph_node2"><a xlink:href=".././sourcefile/demo.f90.html" xlink:title="demo.f90">
+<g id="a_sourcefile~~fordebug.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/demo.f90.html" xlink:title="demo.f90">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="207.5,-66 144.5,-66 144.5,-42 207.5,-42 207.5,-66"/>
 <text text-anchor="middle" x="176" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo.f90</text>
 </a>
@@ -179,13 +181,13 @@
 <!-- sourcefile~demo.f90&#45;&gt;sourcefile~fordebug.f90 -->
 <g id="sourcefile~~fordebug.f90~~AfferentGraph_edge1" class="edge">
 <title>sourcefile~demo.f90&#45;&gt;sourcefile~fordebug.f90</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M144.49,-49.18C129.1,-46.75 110.04,-43.74 92.54,-40.98"/>
-<polygon fill="#255000" stroke="#255000" points="92.88,-37.49 82.46,-39.39 91.79,-44.4 92.88,-37.49"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M144.49,-49.18C129.1,-46.75 110.04,-43.74 92.54,-40.98"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="92.88,-37.49 82.46,-39.39 91.79,-44.4 92.88,-37.49"/>
 </g>
 <!-- sourcefile~fordebug_smod.f90 -->
 <g id="sourcefile~~fordebug.f90~~AfferentGraph_node3" class="node">
 <title>sourcefile~fordebug_smod.f90</title>
-<g id="a_sourcefile~~fordebug.f90~~AfferentGraph_node3"><a xlink:href=".././sourcefile/fordebug_smod.f90.html" xlink:title="fordebug_smod.f90">
+<g id="a_sourcefile~~fordebug.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/fordebug_smod.f90.html" xlink:title="fordebug_smod.f90">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="234,-24 118,-24 118,0 234,0 234,-24"/>
 <text text-anchor="middle" x="176" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordebug_smod.f90</text>
 </a>
@@ -194,22 +196,22 @@
 <!-- sourcefile~fordebug_smod.f90&#45;&gt;sourcefile~fordebug.f90 -->
 <g id="sourcefile~~fordebug.f90~~AfferentGraph_edge2" class="edge">
 <title>sourcefile~fordebug_smod.f90&#45;&gt;sourcefile~fordebug.f90</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M117.82,-21.03C109.32,-22.37 100.6,-23.75 92.25,-25.07"/>
-<polygon fill="#255000" stroke="#255000" points="91.61,-21.62 82.28,-26.64 92.7,-28.54 91.61,-21.62"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M117.82,-21.03C109.32,-22.37 100.6,-23.75 92.25,-25.07"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="91.61,-21.62 82.28,-26.64 92.7,-28.54 91.61,-21.62"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#AfferentGraph-help-text">Help</a></div>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#AfferentGraph-help-text">Help</a>
+          </div>
           <div class="modal fade" id="AfferentGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                   <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <div class="modal-body">
+                <div class="modal-body">
 <p>Nodes of different colours represent the following: </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -255,7 +257,7 @@ large graphs.</div>
         <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">module </span><span class="n">fordebug</span>
 <a id="ln-2" name="ln-2" href="#ln-2"></a>
 <a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">   </span><span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">int32</span><span class="p">,</span><span class="w"> </span><span class="n">int64</span><span class="p">,</span><span class="w"> </span><span class="n">real32</span><span class="p">,</span><span class="w"> </span><span class="n">real64</span>
-<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">   </span><span class="k">use </span><span class="n">fortime</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">timer</span><span class="p">,</span><span class="w"> </span><span class="n">timer_start</span><span class="p">,</span><span class="w"> </span><span class="n">timer_stop</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">   </span><span class="k">use </span><span class="n">fortime</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">timer</span>
 <a id="ln-5" name="ln-5" href="#ln-5"></a>
 <a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">   </span><span class="k">implicit none</span>
 <a id="ln-7" name="ln-7" href="#ln-7"></a>
@@ -306,14 +308,17 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForDebug was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForDebug
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-13T21:26:50.687226             </p>
+ on 2024-05-04T20:10:56.885338             </p>
           </div>
         </div>
         <br>
