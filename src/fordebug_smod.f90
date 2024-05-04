@@ -749,7 +749,7 @@ subroutine impure_timer_start(t)
    implicit none
    type(timer), intent(out) :: t
 
-   call timer_start(t)
+   call t%timer_start()
 end subroutine impure_timer_start
 !===============================================================================
 
@@ -762,6 +762,6 @@ subroutine impure_timer_stop(t, message)
    type(timer), intent(out) :: t
    character(*), intent(in), optional :: message
 
-   call timer_stop(t, message=message)
+   call t%timer_stop(message=message)
 end subroutine impure_timer_stop
 !===============================================================================
