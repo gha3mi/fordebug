@@ -91,6 +91,11 @@ To run `demo`, execute the following command:
 fpm run --example demo
 ```
 
+## Status
+
+<!-- STATUS:setup-fortran-conda:START -->
+<!-- STATUS:setup-fortran-conda:END -->
+
 ## API documentation
 
 The most up-to-date API documentation for the master branch is available
