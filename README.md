@@ -94,6 +94,13 @@ fpm run --example demo
 ## Status
 
 <!-- STATUS:setup-fortran-conda:START -->
+| Compiler   | macos | ubuntu | windows |
+|------------|----------------------|----------------------|----------------------|
+| `flang-new` | - | fpm ❌ | fpm ❌ |
+| `gfortran` | fpm ✅ | fpm ✅ | fpm ✅ |
+| `ifx` | - | fpm ✅ | fpm ✅ |
+| `lfortran` | fpm ❌ | fpm ❌ | fpm ❌ |
+| `nvfortran` | - | fpm ✅ | - |
 <!-- STATUS:setup-fortran-conda:END -->
 
 ## API documentation
