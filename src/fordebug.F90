@@ -51,6 +51,7 @@ module fordebug
          R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, &
          R2i32, R2r32, R2c32, R2i64, R2r64, R2c64, &
          access)
+         implicit none
          include 'pwrite.inc'
       end subroutine pwrite
       !===============================================================================
@@ -59,6 +60,7 @@ module fordebug
       !===============================================================================
       !> author: Seyed Ali Ghasemi
       pure module subroutine ptimer_start(t)
+         implicit none
          type(timer), intent(inout) :: t
       end subroutine ptimer_start
       !===============================================================================
@@ -67,6 +69,7 @@ module fordebug
       !===============================================================================
       !> author: Seyed Ali Ghasemi
       pure module subroutine ptimer_stop(t, message)
+         implicit none
          type(timer), intent(inout) :: t
          character(len=*), intent(in), optional :: message
       end subroutine ptimer_stop

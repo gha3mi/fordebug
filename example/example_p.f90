@@ -33,7 +33,7 @@ contains
 
       ! Write Rank 0 int32 with a message and format to a file. message and format are optional
       call pwrite(message='n = ', R0i32=n, format='(a,i3)', file='example/example_p.txt', access='append')
-      
+
       ! Print Rank 0 character with a format. format is optional
       call pwrite(R0ch='start loop', format='(a)')
 
