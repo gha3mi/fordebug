@@ -50,7 +50,6 @@ main="test1.f90"
 [extra.ford]
 project             = "ForDebug"
 year                = "2023-2025"
-summary             = '<p style="text-align: center"><img alt="ForDebug" src="https://github.com/gha3mi/fordebug/raw/main/logo/logo.png" style="max-width: 100%; height: auto;"></p>'
 project_github      = "https://github.com/gha3mi/fordebug"
 author              = "Seyed Ali Ghasemi"
 email               = "info@gha3mi.com"
@@ -66,7 +65,6 @@ search              = true
 print_creation_date = true
 sort                = "permission-alpha"
 display             = ["public", "private", "protected"]
-favicon             = "logo/logo.png"
 
 
 [extra.fortitude.check]
