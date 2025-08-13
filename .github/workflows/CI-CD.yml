@@ -15,6 +15,7 @@ on:
       - 'CHANGELOG.md'
       - 'VERSION'
       - 'LICENSE'
+  workflow_dispatch:
 permissions:
   contents: write
   pull-requests: write
@@ -52,16 +53,25 @@ jobs:
         with:
           compiler: ${{ matrix.compiler }}
           platform: ${{ matrix.os }}
-          extra-packages: ${{ matrix.extra-packages }}
 
       - name: fpm test (debug)
+        if: always()
         run: fpm test --compiler ${{ matrix.compiler }} --profile debug --verbose
 
       - name: fpm test (release)
+        if: always()
         run: fpm test --compiler ${{ matrix.compiler }} --profile release --verbose
 
+      - name: fpm example (debug)
+        if: always()
+        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile debug --verbose
+
+      - name: fpm example (release)
+        if: always()
+        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile release --verbose
+
   doc_ford:
-    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]') }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[skip ci]') }}
     name: Generate FORD Documentation
     runs-on: ubuntu-latest
     steps:
@@ -69,13 +79,13 @@ jobs:
         uses: gha3mi/setup-fortran-conda@latest
         with:
           compiler: gfortran
+          platform: ubuntu-latest
           generate-doc-ford: true
           ford-working-directory: .
-          ford-config: ford.yml
+          ford-config: README.md
           ford-output-directory: doc
           ford-branch: gh-pages
           ford-target-folder: .
-
 
   status_fpm:
     if: ${{ always() && github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]') }}
@@ -89,7 +99,7 @@ jobs:
           generate-status-fpm: true
 
   update_readme_table:
-    if: ${{ always() && github.event_name == 'push' && github.ref != 'refs/heads/update-readme-table' && !contains(github.event.head_commit.message, '[skip ci]') }}
+    if: ${{ always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[skip ci]') }}
     name: Update README.md status table
     needs: [status_fpm]
     runs-on: ubuntu-latest
