@@ -1,22 +1,10 @@
 [![GitHub](https://img.shields.io/badge/GitHub-ForDebug-blue.svg?style=social&logo=github)](https://github.com/gha3mi/fordebug)
 [![Version](https://img.shields.io/github/release/gha3mi/fordebug.svg)](https://github.com/gha3mi/fordebug/releases/latest)
 [![Documentation](https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg)](https://gha3mi.github.io/fordebug/)
-[![CI_test](https://github.com/gha3mi/fordebug/actions/workflows/CI_test.yml/badge.svg)](https://github.com/gha3mi/fordebug/actions/workflows/CI_test.yml)
-[![CI_doc](https://github.com/gha3mi/fordebug/actions/workflows/CI_doc.yml/badge.svg)](https://github.com/gha3mi/fordebug/actions/workflows/CI_doc.yml) 
+[![CI-CD](https://github.com/gha3mi/fordebug/actions/workflows/CI-CD.yml/badge.svg)](https://github.com/gha3mi/fordebug/actions/workflows/CI-CD.yml) 
 [![License](https://img.shields.io/github/license/gha3mi/fordebug?color=green)](https://github.com/gha3mi/fordebug/blob/main/LICENSE)
 
-<img alt="ForDebug" src="https://github.com/gha3mi/fordebug/raw/main/media/logo.png" width="750">
-
 **ForDebug**: A Fortran library designed for debugging Fortran code, especially within pure procedures.
-
-**USE OF THIS LIBRARY IS NOT STANDARDS CONFORMING AND YOU CAN EXPECT THINGS TO BREAK IN PLENTY OF SITUATIONS. IT SHOULD BE USED ONLY FOR DEBUGGING PURPOSES**
-
-
-
-- [fpm dependency](#fpm-dependency)
-- [How to run demo](#how-to-run-demo)
-- [API documentation](#api-documentation)
-- [Contributing](#contributing)
 
 ## fpm dependency
 
@@ -30,18 +18,43 @@ fordebug = {git="https://github.com/gha3mi/fordebug.git"}
 
 ## Usage
 
+### Error / Warning / Info Control
+
+```Fortran
+use fordebug, only: debug
+
+type(debug) :: err
+
+call err%set(&
+  severity   = 1, &
+  code       = 100, &
+  category   = "math", &
+  message    = "division by zero", &
+  location   = my_module.f90:11, &
+  suggestion = "Check denominator for zero." )
+
+call err%print()
+
+call err%reset()
+```
+
+#### Notes
+
+- Define `FOR_DEBUG` preprocessor directive to enable error/warning/info control.
+
 ### Printing or Writing within Pure Procedures
 
 To enable printing or writing within a pure procedure in Fortran, use the fordebug module.
 
 ```Fortran
-use fordebug
+use fordebug, only: pwrite
 
 ! within pure procedures
 call pwrite(message='hello!')
 call pwrite(R0i32=n)
 call pwrite(message='x = ', R0r32=10.0, format='(a,f7.3)', file='example/demo.txt', access='append')
 ```
+
 #### Notes
 
 - All arguments of `pwrite` are optional.
@@ -51,13 +64,12 @@ call pwrite(message='x = ', R0r32=10.0, format='(a,f7.3)', file='example/demo.tx
   - `R2i32`, `R2i64`, `R2r32`, `R2r64`, `R2c32`, `R2c64` for Rank 2 integer, real, and complex types.
   - `R0ch` for Rank 0 character.
 
-
 ### Measuring Elapsed Time within Pure Procedures
 
 ForDebug uses [ForTmie](https://github.com/gha3mi/fortime) as dependency. For measuring elapsed time within a pure procedure, utilize the fordebug module with time derived type.
 
 ```Fortran
-use fordebug
+use fordebug, only: timer, ptimer_start, ptimer_stop
 
 type(timer) :: t
 
@@ -66,12 +78,11 @@ call ptimer_start(t)
 call ptimer_stop(t) ! Output: Elapsed time:  0.000 [s]
 ```
 
-## How to run demo
+## How to run examples
 
 **Clone the repository:**
 
 Clone the `ForDebug` repository from GitHub using the following command:
-
 
 ```shell
 git clone https://github.com/gha3mi/fordebug.git
@@ -83,12 +94,12 @@ Navigate to the cloned directory:
 cd fordebug
 ```
 
-### Running `demo`
+### Running examples
 
-To run `demo`, execute the following command:
+To run all examples, execute the following command:
 
 ```shell
-fpm run --example demo
+fpm run --example --all --flag "-DFOR_DEBUG"
 ```
 
 ## Status
@@ -112,7 +123,7 @@ To generate the API documentation for `ForDebug` using
 command:
 
 ```shell
-ford ford.yml
+ford README.yml
 ```
 
 ## Contributing
@@ -120,6 +131,6 @@ ford ford.yml
 Contributions to `ForDebug` are welcome!
 If you find any issues or would like to suggest improvements, please open an issue.
 
-## Acknowledgment
+## See also
 
-This project draws inspiration from https://github.com/plevold/fortran-debug-utils.
+- https://github.com/plevold/fortran-debug-utils.
