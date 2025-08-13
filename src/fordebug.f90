@@ -26,7 +26,7 @@ module fordebug
       !===============================================================================
       !> author: Seyed Ali Ghasemi
       pure module subroutine ptimer_start(t)
-         type(timer), intent(out) :: t
+         type(timer), intent(inout) :: t
       end subroutine ptimer_start
       !===============================================================================
 
@@ -34,7 +34,7 @@ module fordebug
       !===============================================================================
       !> author: Seyed Ali Ghasemi
       pure module subroutine ptimer_stop(t, message)
-         type(timer), intent(out) :: t
+         type(timer), intent(inout) :: t
          character(len=*), intent(in), optional :: message
       end subroutine ptimer_stop
       !===============================================================================
