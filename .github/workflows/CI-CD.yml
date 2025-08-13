@@ -15,6 +15,7 @@ on:
       - 'CHANGELOG.md'
       - 'VERSION'
       - 'LICENSE'
+  workflow_dispatch:
 permissions:
   contents: write
   pull-requests: write
@@ -52,16 +53,94 @@ jobs:
         with:
           compiler: ${{ matrix.compiler }}
           platform: ${{ matrix.os }}
-          extra-packages: ${{ matrix.extra-packages }}
 
       - name: fpm test (debug)
+        if: always()
         run: fpm test --compiler ${{ matrix.compiler }} --profile debug --verbose
 
       - name: fpm test (release)
+        if: always()
         run: fpm test --compiler ${{ matrix.compiler }} --profile release --verbose
 
+      - name: fpm example (debug)
+        if: always()
+        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile debug --flag "-DFOR_DEBUG" --verbose
+
+      - name: fpm example (release)
+        if: always()
+        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile release --flag "-DFOR_DEBUG" --verbose
+
+  test_cmake:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    name: ${{ matrix.os }}_${{ matrix.compiler }}_cmake
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        compiler: [gfortran, ifx, lfortran, flang-new, nvfortran]
+        include:
+          - os: ubuntu-latest
+            extra-packages: ""
+          - os: windows-latest
+            extra-packages: ""
+          - os: macos-latest
+            extra-packages: ""
+        exclude:
+          - os: macos-latest
+            compiler: flang-new
+          - os: macos-latest
+            compiler: ifx
+          - os: macos-latest
+            compiler: nvfortran
+          - os: windows-latest
+            compiler: nvfortran
+  
+    steps:
+      - name: Setup Fortran
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          compiler: ${{ matrix.compiler }}
+          platform: ${{ matrix.os }}
+
+      - name: cmake test (debug)
+        if: always()
+        run: |
+          cmake -S . -B build/cmake/debug -DCMAKE_Fortran_FLAGS="-DFOR_DEBUG" -DCMAKE_Fortran_PREPROCESS=ON -DCMAKE_BUILD_TYPE=Debug -G Ninja -DFORDEBUG_BUILD_TESTS=ON
+          cmake --build build/cmake/debug --config Debug --verbose
+          ctest --test-dir build/cmake/debug --output-on-failure -VV
+
+      - name: cmake test (release)
+        if: always()
+        run: |
+          cmake -S . -B build/cmake/release -DCMAKE_Fortran_FLAGS="-DFOR_DEBUG" -DCMAKE_Fortran_PREPROCESS=ON -DCMAKE_BUILD_TYPE=Release -G Ninja -DFORDEBUG_BUILD_TESTS=ON
+          cmake --build build/cmake/release --config Release --verbose
+          ctest --test-dir build/cmake/release --output-on-failure -VV
+      
+      - name: cmake install (static)
+        if: always()
+        run: |
+          cmake -S . -B build/cmake/static -DCMAKE_Fortran_FLAGS="-DFOR_DEBUG" -DCMAKE_Fortran_PREPROCESS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=. -G Ninja
+          cmake --build build/cmake/static --config Release
+          cmake --install build/cmake/static --config Release --verbose
+
+      - name: cmake uninstall
+        if: always()
+        run: cmake --build build/cmake/static --target uninstall
+
+      - name: cmake install (shared)
+        if: always()
+        run: |
+          cmake -S . -B build/cmake/shared -DCMAKE_Fortran_FLAGS="-DFOR_DEBUG" -DCMAKE_Fortran_PREPROCESS=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=. -G Ninja
+          cmake --build build/cmake/shared --config Release
+          cmake --install build/cmake/shared --config Release --verbose
+
+      - name: cmake uninstall
+        if: always()
+        run: cmake --build build/cmake/shared --target uninstall
+
   doc_ford:
-    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]') }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[skip ci]') }}
     name: Generate FORD Documentation
     runs-on: ubuntu-latest
     steps:
@@ -69,13 +148,13 @@ jobs:
         uses: gha3mi/setup-fortran-conda@latest
         with:
           compiler: gfortran
+          platform: ubuntu-latest
           generate-doc-ford: true
           ford-working-directory: .
-          ford-config: ford.yml
+          ford-config: README.md
           ford-output-directory: doc
           ford-branch: gh-pages
           ford-target-folder: .
-
 
   status_fpm:
     if: ${{ always() && github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]') }}
@@ -88,10 +167,22 @@ jobs:
         with:
           generate-status-fpm: true
 
+
+  status_cmake:
+    if: ${{ always() && github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]') }}
+    name: Generate STATUS.md
+    needs: [test_cmake]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate summary
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          generate-status-cmake: true
+
   update_readme_table:
-    if: ${{ always() && github.event_name == 'push' && github.ref != 'refs/heads/update-readme-table' && !contains(github.event.head_commit.message, '[skip ci]') }}
+    if: ${{ always() && github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[skip ci]') }}
     name: Update README.md status table
-    needs: [status_fpm]
+    needs: [status_fpm, status_cmake]
     runs-on: ubuntu-latest
     steps:
       - name: Update README status

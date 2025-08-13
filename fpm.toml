@@ -1,8 +1,9 @@
 name = "fordebug"
-version = "0.1.0"
-license = "license"
+version = "VERSION"
+license = "BSD 3-Clause License"
 author = "Seyed Ali Ghasemi"
 maintainer = "info@gha3mi.com"
+homepage = "https://github.com/gha3mi/fordebug"
 copyright = "Copyright 2023, Seyed Ali Ghasemi"
 
 [build]
@@ -12,22 +13,61 @@ auto-examples = false
 module-naming = false
 
 [install]
-library = false
-
-[dependencies]
-fortime = {git="https://github.com/gha3mi/fortime.git"}
+library = true
 
 [fortran]
 implicit-typing = false
 implicit-external = false
 source-form = "free"
 
+[preprocess]
+[preprocess.cpp]
+
+[dependencies]
+fortime = {git="https://github.com/gha3mi/fortime.git"}
+
 [[example]]
-name       = "demo"
+name       = "example_p"
 source-dir = "example"
-main       = "demo.f90"
+main       = "example_p.f90"
+
+[[example]]
+name       = "ewic_simple"
+source-dir = "example"
+main       = "ewic_simple.f90"
+
+[[example]]
+name       = "ewic_complex"
+source-dir = "example"
+main       = "ewic_complex.f90"
 
 [[test]]
 name="test1"
 source-dir="test"
 main="test1.f90"
+
+
+[extra.ford]
+project             = "ForDebug"
+year                = "2023-2025"
+summary             = '<p style="text-align: center"><img alt="ForDebug" src="https://github.com/gha3mi/fordebug/raw/main/logo/logo.png" style="max-width: 100%; height: auto;"></p>'
+project_github      = "https://github.com/gha3mi/fordebug"
+author              = "Seyed Ali Ghasemi"
+email               = "info@gha3mi.com"
+github              = "https://github.com/gha3mi"
+license             = "BSD 3-Clause"
+src_dir             = ["src", "example", "test"]
+output_dir          = "doc"
+source              = true
+incl_src            = true
+graph               = true
+coloured_edges      = true
+search              = true
+print_creation_date = true
+sort                = "permission-alpha"
+display             = ["public", "private", "protected"]
+favicon             = "logo/logo.png"
+
+
+[extra.fortitude.check]
+ignore = ["S001", "S061", "C003", "E001", "C092"]

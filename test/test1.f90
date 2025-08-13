@@ -10,7 +10,7 @@ contains
 
    pure subroutine pure_subroutine(x, n, y)
 
-      use fordebug
+      use fordebug, only: timer, pwrite, ptimer_start, ptimer_stop
       implicit none
 
       real(rk), intent(in)               :: x
@@ -30,7 +30,7 @@ contains
 
       ! Write Rank 0 int32 with a message and format to a file. message and format are optional
       call pwrite(message='n = ', R0i32=n, format='(a,i3)', file='test/test1.txt', access='append')
-      
+
       ! Print Rank 0 character with a format. format is optional
       call pwrite(R0ch='start loop', format='(a)')
 

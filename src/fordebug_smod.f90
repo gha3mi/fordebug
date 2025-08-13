@@ -12,6 +12,7 @@ submodule(fordebug) fordebug_smod
          R2i32, R2r32, R2c32, R2i64, R2r64, R2c64, &
          access)
          import int32, int64, real32, real64
+         implicit none
          include 'pwrite.inc'
       end subroutine impure_write
       !===============================================================================
@@ -21,6 +22,7 @@ submodule(fordebug) fordebug_smod
       !> author: Seyed Ali Ghasemi
       pure subroutine impure_timer_start(t)
          import timer
+         implicit none
          type(timer), intent(out) :: t
       end subroutine impure_timer_start
       !===============================================================================
@@ -30,6 +32,7 @@ submodule(fordebug) fordebug_smod
       !> author: Seyed Ali Ghasemi
       pure subroutine impure_timer_stop(t, message)
          import timer
+         implicit none
          type(timer), intent(out) :: t
          character(len=*), intent(in), optional :: message
       end subroutine impure_timer_stop
@@ -745,9 +748,9 @@ end subroutine impure_write
 !===============================================================================
 !> author: Seyed Ali Ghasemi
 subroutine impure_timer_start(t)
-   use fortime
+   use fortime, only: timer
    implicit none
-   type(timer), intent(out) :: t
+   type(timer), intent(inout) :: t
 
    call t%timer_start()
 end subroutine impure_timer_start
@@ -757,9 +760,9 @@ end subroutine impure_timer_start
 !===============================================================================
 !> author: Seyed Ali Ghasemi
 subroutine impure_timer_stop(t, message)
-   use fortime
+   use fortime, only: timer
    implicit none
-   type(timer), intent(out) :: t
+   type(timer), intent(inout) :: t
    character(*), intent(in), optional :: message
 
    call t%timer_stop(message=message)
