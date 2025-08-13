@@ -64,11 +64,11 @@ jobs:
 
       - name: fpm example (debug)
         if: always()
-        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile debug --verbose
+        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile debug --flag "-DFOR_DEBUG" --verbose
 
       - name: fpm example (release)
         if: always()
-        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile release --verbose
+        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile release --flag "-DFOR_DEBUG" --verbose
 
   doc_ford:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[skip ci]') }}
