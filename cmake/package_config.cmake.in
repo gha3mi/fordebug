@@ -1,0 +1,6 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(fortime REQUIRED CONFIG)
+
+include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME_LOWER@-targets.cmake")
