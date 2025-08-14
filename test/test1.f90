@@ -43,7 +43,12 @@ contains
       ! start pure timer
       call ptimer_start(t)
 
+! nvfortran 25.5.0 -> NVFORTRAN-S-1074-Procedure call in Do Concurrent is not supported yet
+#if defined(__NVCOMPILER)
+      do i=2,n
+#else
       do concurrent (i=2:n)
+#endif
          y(i) = y(i-1) + x
 
          ! Print Rank 0 real64 with a message and format. message and format are optional
