@@ -44,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="./index.html">ForDebug <small>0.1.0</small></a>
+          <a class="navbar-brand" href="./index.html">ForDebug </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -62,7 +62,10 @@
                   <a class="nav-link" href="./lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./program/demo.html">Program</a>
+                  <a class="nav-link" href="./lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/programs.html">Programs</a>
                 </li>
             </ul>
               <div class="d-flex align-items-end flex-grow-1">
@@ -95,18 +98,9 @@
           <p><a href="https://github.com/gha3mi/fordebug"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-ForDebug-blue.svg?style=social&amp;logo=github"></a>
 <a href="https://github.com/gha3mi/fordebug/releases/latest"><img alt="Version" src="https://img.shields.io/github/release/gha3mi/fordebug.svg"></a>
 <a href="https://gha3mi.github.io/fordebug/"><img alt="Documentation" src="https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg"></a>
-<a href="https://github.com/gha3mi/fordebug/actions/workflows/CI_test.yml"><img alt="CI_test" src="https://github.com/gha3mi/fordebug/actions/workflows/CI_test.yml/badge.svg"></a>
-<a href="https://github.com/gha3mi/fordebug/actions/workflows/CI_doc.yml"><img alt="CI_doc" src="https://github.com/gha3mi/fordebug/actions/workflows/CI_doc.yml/badge.svg"></a> 
+<a href="https://github.com/gha3mi/fordebug/actions/workflows/CI-CD.yml"><img alt="CI-CD" src="https://github.com/gha3mi/fordebug/actions/workflows/CI-CD.yml/badge.svg"></a> 
 <a href="https://github.com/gha3mi/fordebug/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/gha3mi/fordebug?color=green"></a></p>
-<p><img alt="ForDebug" src="https://github.com/gha3mi/fordebug/raw/main/media/logo.png" width="750"></p>
 <p><strong>ForDebug</strong>: A Fortran library designed for debugging Fortran code, especially within pure procedures.</p>
-<p><strong>USE OF THIS LIBRARY IS NOT STANDARDS CONFORMING AND YOU CAN EXPECT THINGS TO BREAK IN PLENTY OF SITUATIONS. IT SHOULD BE USED ONLY FOR DEBUGGING PURPOSES</strong></p>
-<ul>
-<li><a href="#fpm-dependency">fpm dependency</a></li>
-<li><a href="#how-to-run-demo">How to run demo</a></li>
-<li><a href="#api-documentation">API documentation</a></li>
-<li><a href="#contributing">Contributing</a></li>
-</ul>
 <h2>fpm dependency</h2>
 <p>If you want to use <code>ForDebug</code> as a dependency in your own fpm project,
 you can easily include it by adding the following line to your <code>fpm.toml</code> file:</p>
@@ -115,9 +109,31 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 </code></pre></div>
 
 <h2>Usage</h2>
+<h3>Error / Warning / Info Control</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">fordebug</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">debug</span><span class="w"></span>
+
+<span class="k">type</span><span class="p">(</span><span class="n">debug</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">err</span><span class="w"></span>
+
+<span class="k">call </span><span class="n">err</span><span class="p">%</span><span class="n">set</span><span class="p">(&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">severity</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">code</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">category</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;math&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">message</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;division by zero&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">location</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">my_module</span><span class="p">.</span><span class="n">f90</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">suggestion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Check denominator for zero.&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="k">call </span><span class="n">err</span><span class="p">%</span><span class="k">print</span><span class="p">()</span><span class="w"></span>
+
+<span class="k">call </span><span class="n">err</span><span class="p">%</span><span class="n">reset</span><span class="p">()</span><span class="w"></span>
+</code></pre></div>
+
+<h4>Notes</h4>
+<ul>
+<li>Define <code>FOR_DEBUG</code> preprocessor directive to enable error/warning/info control.</li>
+</ul>
 <h3>Printing or Writing within Pure Procedures</h3>
 <p>To enable printing or writing within a pure procedure in Fortran, use the fordebug module.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">fordebug</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">fordebug</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">pwrite</span><span class="w"></span>
 
 <span class="c">! within pure procedures</span>
 <span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;hello!&#39;</span><span class="p">)</span><span class="w"></span>
@@ -136,7 +152,7 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 </ul>
 <h3>Measuring Elapsed Time within Pure Procedures</h3>
 <p>ForDebug uses <a href="https://github.com/gha3mi/fortime">ForTmie</a> as dependency. For measuring elapsed time within a pure procedure, utilize the fordebug module with time derived type.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">fordebug</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">fordebug</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">timer</span><span class="p">,</span><span class="w"> </span><span class="n">ptimer_start</span><span class="p">,</span><span class="w"> </span><span class="n">ptimer_stop</span><span class="w"></span>
 
 <span class="k">type</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
 
@@ -145,7 +161,7 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 <span class="k">call </span><span class="n">ptimer_stop</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="c">! Output: Elapsed time:  0.000 [s]</span>
 </code></pre></div>
 
-<h2>How to run demo</h2>
+<h2>How to run examples</h2>
 <p><strong>Clone the repository:</strong></p>
 <p>Clone the <code>ForDebug</code> repository from GitHub using the following command:</p>
 <div class="codehilite"><pre><span></span><code>git clone https://github.com/gha3mi/fordebug.git
@@ -155,13 +171,55 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 <div class="codehilite"><pre><span></span><code><span class="nb">cd</span> fordebug
 </code></pre></div>
 
-<h3>Running <code>demo</code></h3>
-<p>To run <code>demo</code>, execute the following command:</p>
-<div class="codehilite"><pre><span></span><code>fpm run --example demo
+<h3>Running examples</h3>
+<p>To run all examples, execute the following command:</p>
+<div class="codehilite"><pre><span></span><code>fpm run --example --all --flag <span class="s2">&quot;-DFOR_DEBUG&quot;</span>
 </code></pre></div>
 
 <h2>Status</h2>
 <!-- STATUS:setup-fortran-conda:START -->
+<table>
+<thead>
+<tr>
+<th>Compiler</th>
+<th>macos</th>
+<th>ubuntu</th>
+<th>windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flang-new</code></td>
+<td>-</td>
+<td>fpm ❌  cmake ✅</td>
+<td>fpm ❌  cmake ❌</td>
+</tr>
+<tr>
+<td><code>gfortran</code></td>
+<td>fpm ✅  cmake ✅</td>
+<td>fpm ✅  cmake ✅</td>
+<td>fpm ✅  cmake ✅</td>
+</tr>
+<tr>
+<td><code>ifx</code></td>
+<td>-</td>
+<td>fpm ✅  cmake ✅</td>
+<td>fpm ✅  cmake ❌</td>
+</tr>
+<tr>
+<td><code>lfortran</code></td>
+<td>fpm ❌  cmake ❌</td>
+<td>fpm ❌  cmake ❌</td>
+<td>fpm ❌  cmake ❌</td>
+</tr>
+<tr>
+<td><code>nvfortran</code></td>
+<td>-</td>
+<td>fpm ✅  cmake ❌</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <!-- STATUS:setup-fortran-conda:END -->
 
 <h2>API documentation</h2>
@@ -170,14 +228,16 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 To generate the API documentation for <code>ForDebug</code> using
 <a href="https://github.com/Fortran-FOSS-Programmers/ford">ford</a> run the following
 command:</p>
-<div class="codehilite"><pre><span></span><code>ford ford.yml
+<div class="codehilite"><pre><span></span><code>ford README.yml
 </code></pre></div>
 
 <h2>Contributing</h2>
 <p>Contributions to <code>ForDebug</code> are welcome!
 If you find any issues or would like to suggest improvements, please open an issue.</p>
-<h2>Acknowledgment</h2>
-<p>This project draws inspiration from https://github.com/plevold/fortran-debug-utils.</p>
+<h2>See also</h2>
+<ul>
+<li>https://github.com/plevold/fortran-debug-utils.</li>
+</ul>
         </div>
           <div class="col-md-4">
             <div class="card card-body bg-light">
@@ -200,10 +260,10 @@ If you find any issues or would like to suggest improvements, please open an iss
       </div>
         <div class="row">
           <hr>
-          <div class="col-xs-6 col-sm-4">
+          <div class="col-xs-6 col-sm-3">
             <div>
               <h3>Source Files</h3>
-              <ul><li><a href='sourcefile/demo.f90.html'>demo.f90</a></li><li><a href='sourcefile/fordebug.f90.html'>fordebug.f90</a></li><li><a href='sourcefile/fordebug_smod.f90.html'>fordebug_smod.f90</a></li></ul>
+              <ul><li><a href='sourcefile/ewic_complex.f90.html'>ewic_complex.f90</a></li><li><a href='sourcefile/ewic_simple.f90.html'>ewic_simple.f90</a></li><li><a href='sourcefile/example_p.f90.html'>example_p.f90</a></li><li><a href='sourcefile/fordebug.f90.html'>fordebug.F90</a></li><li><a href='sourcefile/fordebug_smod.f90.html'>fordebug_smod.f90</a></li><li><a href='sourcefile/test1.f90.html'>test1.f90</a></li></ul>
             </div>
             <div>
               <ul>
@@ -211,10 +271,10 @@ If you find any issues or would like to suggest improvements, please open an iss
               </ul>
             </div>
           </div>
-          <div class="col-xs-6 col-sm-4">
+          <div class="col-xs-6 col-sm-3">
             <div>
               <h3>Modules</h3>
-              <ul><li><a href='module/fordebug.html'>fordebug</a></li></ul>
+              <ul><li><a href='module/fordebug.html'>fordebug</a></li><li><a href='module/my_module.html'>my_module</a></li></ul>
             </div>
             <div>
               <ul>
@@ -222,14 +282,25 @@ If you find any issues or would like to suggest improvements, please open an iss
               </ul>
             </div>
           </div>
-          <div class="col-xs-6 col-sm-4">
+          <div class="col-xs-6 col-sm-3">
             <div>
               <h3>Procedures</h3>
-              <ul><li><a href='proc/impure_timer_start.html'>impure_timer_start</a></li><li><a href='interface/impure_timer_start.html'>impure_timer_start</a></li><li><a href='proc/impure_timer_stop.html'>impure_timer_stop</a></li><li><a href='interface/impure_timer_stop.html'>impure_timer_stop</a></li><li><a href='proc/impure_write.html'>impure_write</a></li><li><a href='interface/impure_write.html'>impure_write</a></li><li><a href='interface/ptimer_start.html'>ptimer_start</a></li><li><a href='interface/ptimer_stop.html'>ptimer_stop</a></li><li><a href='proc/pure_subroutine.html'>pure_subroutine</a></li><li><a href='interface/pwrite.html'>pwrite</a></li></ul>
+              <ul><li><a href='proc/debug_loc.html'>debug_loc</a></li><li><a href='proc/impure_timer_start.html'>impure_timer_start</a></li><li><a href='interface/impure_timer_start.html'>impure_timer_start</a></li><li><a href='proc/impure_timer_stop.html'>impure_timer_stop</a></li><li><a href='interface/impure_timer_stop.html'>impure_timer_stop</a></li><li><a href='proc/impure_write.html'>impure_write</a></li><li><a href='interface/impure_write.html'>impure_write</a></li><li><a href='proc/my_function.html'>my_function</a></li><li><a href='proc/my_subroutine.html'>my_subroutine</a></li><li><a href='proc/print_error.html'>print_error</a></li></ul>
             </div>
             <div>
               <ul>
                 <li><a href="./lists/procedures.html"><em>All procedures&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Derived Types</h3>
+              <ul><li><a href='type/debug.html'>debug</a></li><li><a href='type/my_type.html'>my_type</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/types.html"><em>All derived types&hellip;</em></a></li>
               </ul>
             </div>
           </div>
@@ -242,14 +313,14 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col">
             <p>
               ForDebug
- was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-07-11T06:44:44.377410+0000             </p>
+ on 2025-08-14T07:03:53.375644+0000             </p>
           </div>
         </div>
         <br>

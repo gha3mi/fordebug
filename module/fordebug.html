@@ -44,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForDebug <small>0.1.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForDebug </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -62,7 +62,10 @@
                   <a class="nav-link" href="../lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../program/demo.html">Program</a>
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
                 </li>
             </ul>
               <div class="d-flex align-items-end flex-grow-1">
@@ -85,22 +88,23 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="45.1% of total for modules and submodules.">41 statements</a>
+                 title="60.6% of total for modules and submodules.">134 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/fordebug.f90"> Source File</a>
+              <a href="../src/fordebug.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/fordebug.f90.html'>fordebug.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/fordebug.f90.html'>fordebug.F90</a></li>
             <li class="breadcrumb-item active" aria-current="page">fordebug</li>
           </ol>
         </nav>
@@ -122,7 +126,26 @@
         <div id="sidebar">
       <h3>Contents</h3>
   
-  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/fordebug.html#variable-debug_mode">DEBUG_MODE</a>
+            <a class="list-group-item" href="../module/fordebug.html#variable-error">ERROR</a>
+            <a class="list-group-item" href="../module/fordebug.html#variable-info">INFO</a>
+            <a class="list-group-item" href="../module/fordebug.html#variable-max_length_category">MAX_LENGTH_CATEGORY</a>
+            <a class="list-group-item" href="../module/fordebug.html#variable-max_length_location">MAX_LENGTH_LOCATION</a>
+            <a class="list-group-item" href="../module/fordebug.html#variable-max_length_message">MAX_LENGTH_MESSAGE</a>
+            <a class="list-group-item" href="../module/fordebug.html#variable-max_length_suggestion">MAX_LENGTH_SUGGESTION</a>
+            <a class="list-group-item" href="../module/fordebug.html#variable-none">NONE</a>
+            <a class="list-group-item" href="../module/fordebug.html#variable-warning">WARNING</a>
+        </div>
+      </div>
+    </div>
+
   
   
   
@@ -136,17 +159,52 @@
       </a>
       <div id="inters-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../module/fordebug.html#interface-pwrite">pwrite</a>
             <a class="list-group-item" href="../module/fordebug.html#interface-ptimer_start">ptimer_start</a>
             <a class="list-group-item" href="../module/fordebug.html#interface-ptimer_stop">ptimer_stop</a>
+            <a class="list-group-item" href="../module/fordebug.html#interface-pwrite">pwrite</a>
         </div>
       </div>
     </div>
 
   
-  
-  
-  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/fordebug.html#type-debug">debug</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/fordebug.html#proc-debug_loc">debug_loc</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/fordebug.html#proc-print_error">print_error</a>
+            <a class="list-group-item" href="../module/fordebug.html#proc-reset">reset</a>
+            <a class="list-group-item" href="../module/fordebug.html#proc-set">set</a>
+        </div>
+      </div>
+    </div>
+
   
   
   
@@ -176,7 +234,7 @@
               <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 13.1.0 (20250701.1702)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: module~~fordebug~~UsesGraph Pages: 1 -->
 <svg id="modulefordebugUsesGraph" width="198pt" height="74pt"
@@ -234,7 +292,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 13.1.0 (20250701.1702)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="511pt" height="32pt"
@@ -310,49 +368,109 @@ large graphs.</div>
               <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 13.1.0 (20250701.1702)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: module~~fordebug~~UsedByGraph Pages: 1 -->
-<svg id="modulefordebugUsedByGraph" width="201pt" height="74pt"
- viewBox="0.00 0.00 201.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~fordebug~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70.27)">
+<svg id="modulefordebugUsedByGraph" width="294pt" height="200pt"
+ viewBox="0.00 0.00 294.00 200.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~fordebug~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 196.27)">
 <title>module~~fordebug~~UsedByGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-70.27 197.29,-70.27 197.29,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-196.27 289.81,-196.27 289.81,4 -4,4"/>
 <!-- module~fordebug -->
 <g id="module~~fordebug~~UsedByGraph_node1" class="node">
 <title>module~fordebug</title>
-<polygon fill="none" stroke="black" points="60.27,-45.27 0,-45.27 0,-21 60.27,-21 60.27,-45.27"/>
-<text xml:space="preserve" text-anchor="middle" x="30.13" y="-29.53" font-family="Helvetica,sans-Serif" font-size="10.50">fordebug</text>
+<polygon fill="none" stroke="black" points="60.27,-108.27 0,-108.27 0,-84 60.27,-84 60.27,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="30.13" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50">fordebug</text>
 </g>
 <!-- module~fordebug_smod -->
 <g id="module~~fordebug~~UsedByGraph_node2" class="node">
 <title>module~fordebug_smod</title>
 <g id="a_module~~fordebug~~UsedByGraph_node2"><a xlink:href="../module/fordebug_smod.html" xlink:title="fordebug_smod">
-<polygon fill="#5bc0de" stroke="#5bc0de" points="192.16,-66.27 97.4,-66.27 97.4,-42 192.16,-42 192.16,-66.27"/>
-<text xml:space="preserve" text-anchor="middle" x="144.78" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordebug_smod</text>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="192.16,-192.27 97.4,-192.27 97.4,-168 192.16,-168 192.16,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="144.78" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordebug_smod</text>
 </a>
 </g>
 </g>
 <!-- module~fordebug_smod&#45;&gt;module~fordebug -->
-<g id="module~~fordebug~~UsedByGraph_edge2" class="edge">
+<g id="module~~fordebug~~UsedByGraph_edge5" class="edge">
 <title>module~fordebug_smod&#45;&gt;module~fordebug</title>
-<path fill="none" stroke="#ff0000" d="M96.99,-45.41C88.61,-43.85 79.93,-42.23 71.74,-40.71"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="72.53,-37.29 62.06,-38.9 71.25,-44.17 72.53,-37.29"/>
+<path fill="none" stroke="#ff0000" d="M111.27,-167.61C106.09,-165.1 100.91,-162.26 96.27,-159.13 78.67,-147.29 61.53,-130.44 49.26,-117.14"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="51.89,-114.84 42.6,-109.74 46.69,-119.52 51.89,-114.84"/>
+</g>
+<!-- module~my_module -->
+<g id="module~~fordebug~~UsedByGraph_node3" class="node">
+<title>module~my_module</title>
+<g id="a_module~~fordebug~~UsedByGraph_node3"><a xlink:href="../module/my_module.html" xlink:title="my_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="181.66,-150.27 107.9,-150.27 107.9,-126 181.66,-126 181.66,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="144.78" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">my_module</text>
+</a>
+</g>
+</g>
+<!-- module~my_module&#45;&gt;module~fordebug -->
+<g id="module~~fordebug~~UsedByGraph_edge1" class="edge">
+<title>module~my_module&#45;&gt;module~fordebug</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M109.98,-125.53C97.85,-121.01 84.05,-115.87 71.43,-111.16"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="72.72,-107.9 62.12,-107.69 70.27,-114.46 72.72,-107.9"/>
 </g>
 <!-- proc~pure_subroutine -->
-<g id="module~~fordebug~~UsedByGraph_node3" class="node">
+<g id="module~~fordebug~~UsedByGraph_node4" class="node">
 <title>proc~pure_subroutine</title>
-<g id="a_module~~fordebug~~UsedByGraph_node3"><a xlink:href="../proc/pure_subroutine.html" xlink:title="pure_subroutine">
-<polygon fill="#d9534f" stroke="#d9534f" points="193.29,-24.27 96.27,-24.27 96.27,0 193.29,0 193.29,-24.27"/>
-<text xml:space="preserve" text-anchor="middle" x="144.78" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pure_subroutine</text>
+<g id="a_module~~fordebug~~UsedByGraph_node4"><a xlink:href="../proc/pure_subroutine.html" xlink:title="pure_subroutine">
+<polygon fill="#d9534f" stroke="#d9534f" points="193.29,-108.27 96.27,-108.27 96.27,-84 193.29,-84 193.29,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="144.78" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pure_subroutine</text>
 </a>
 </g>
 </g>
 <!-- proc~pure_subroutine&#45;&gt;module~fordebug -->
-<g id="module~~fordebug~~UsedByGraph_edge1" class="edge">
+<g id="module~~fordebug~~UsedByGraph_edge2" class="edge">
 <title>proc~pure_subroutine&#45;&gt;module~fordebug</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M96.01,-21.04C87.95,-22.54 79.65,-24.09 71.8,-25.55"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="71.36,-22.08 62.17,-27.35 72.65,-28.96 71.36,-22.08"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M96.01,-96.14C88.04,-96.14 79.85,-96.14 72.07,-96.14"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="72.2,-92.64 62.2,-96.14 72.2,-99.64 72.2,-92.64"/>
+</g>
+<!-- proc~pure_subroutine~2 -->
+<g id="module~~fordebug~~UsedByGraph_node5" class="node">
+<title>proc~pure_subroutine~2</title>
+<g id="a_module~~fordebug~~UsedByGraph_node5"><a xlink:href="../proc/pure_subroutine~2.html" xlink:title="pure_subroutine">
+<polygon fill="#d9534f" stroke="#d9534f" points="193.29,-66.27 96.27,-66.27 96.27,-42 193.29,-42 193.29,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="144.78" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pure_subroutine</text>
+</a>
+</g>
+</g>
+<!-- proc~pure_subroutine~2&#45;&gt;module~fordebug -->
+<g id="module~~fordebug~~UsedByGraph_edge3" class="edge">
+<title>proc~pure_subroutine~2&#45;&gt;module~fordebug</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M109.98,-66.74C97.85,-71.26 84.05,-76.4 71.43,-81.11"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="70.27,-77.81 62.12,-84.58 72.72,-84.37 70.27,-77.81"/>
+</g>
+<!-- program~simple -->
+<g id="module~~fordebug~~UsedByGraph_node6" class="node">
+<title>program~simple</title>
+<g id="a_module~~fordebug~~UsedByGraph_node6"><a xlink:href="../program/simple.html" xlink:title="simple">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="171.78,-24.27 117.78,-24.27 117.78,0 171.78,0 171.78,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="144.78" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">simple</text>
+</a>
+</g>
+</g>
+<!-- program~simple&#45;&gt;module~fordebug -->
+<g id="module~~fordebug~~UsedByGraph_edge4" class="edge">
+<title>program~simple&#45;&gt;module~fordebug</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M117.76,-21.67C110.52,-24.84 102.85,-28.7 96.27,-33.13 78.67,-44.98 61.53,-61.83 49.26,-75.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="46.69,-72.75 42.6,-82.53 51.89,-77.43 46.69,-72.75"/>
+</g>
+<!-- program~complex -->
+<g id="module~~fordebug~~UsedByGraph_node7" class="node">
+<title>program~complex</title>
+<g id="a_module~~fordebug~~UsedByGraph_node7"><a xlink:href="../program/complex.html" xlink:title="complex">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="285.81,-150.27 229.29,-150.27 229.29,-126 285.81,-126 285.81,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="257.55" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">complex</text>
+</a>
+</g>
+</g>
+<!-- program~complex&#45;&gt;module~my_module -->
+<g id="module~~fordebug~~UsedByGraph_edge6" class="edge">
+<title>program~complex&#45;&gt;module~my_module</title>
+<path fill="none" stroke="#cbff00" stroke-dasharray="5,2" d="M228.88,-138.13C218.1,-138.13 205.43,-138.13 193.28,-138.13"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="193.38,-134.64 183.38,-138.14 193.38,-141.64 193.38,-134.64"/>
 </g>
 </g>
 </svg>
@@ -371,7 +489,7 @@ large graphs.</div>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 13.1.0 (20250701.1702)
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
  -->
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="511pt" height="32pt"
@@ -436,389 +554,180 @@ large graphs.</div>
       <br>
 
 
-
-
         <section>
-          <h2>Interfaces</h2>
-              <div class="card">
-    <div class="card-header bg-light codesum">
-      <span class="anchor" id="interface-pwrite"></span>
-      <h3>        interface
-      </h3>
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-              <h3>
-    public pure module subroutine pwrite(message, format, file, R0i32, R0r32, R0c32, R0i64, R0r64, R0c64, R0ch, R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, R2i32, R2r32, R2c32, R2i64, R2r64, R2c64, access)  
-    <a href="../proc/pwrite.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-
-    </h3>
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
     <thead>
       <tr>
         <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
         <th scope="col"></th>
         <th scope="col">Name</th>
-        <th scope="col"></th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
     </thead>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-message~5"></span>
-              character(len=*),
+              <span class="anchor" id="variable-debug_mode"></span>
+              logical,
             </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
+              <td>private,</td>
+            <td>
+parameter               
             </td>
             <td>::</td>
-            <td><strong>message</strong></td>
+            <td><strong>DEBUG_MODE</strong></td>
+<td> =</td>
+                <td>.false.</td>
             <td>
-                <p>Message to print</p>
+                
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-format~3"></span>
-              character(len=*),
+              <span class="anchor" id="variable-error"></span>
+              integer,
             </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
+              <td>private,</td>
+            <td>
+parameter               
             </td>
             <td>::</td>
-            <td><strong>format</strong></td>
+            <td><strong>ERROR</strong></td>
+<td> =</td>
+                <td>1</td>
             <td>
-                <p>Format to use for printing</p>
+                
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-file~3"></span>
-              character(len=*),
+              <span class="anchor" id="variable-info"></span>
+              integer,
             </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
+              <td>private,</td>
+            <td>
+parameter               
             </td>
             <td>::</td>
-            <td><strong>file</strong></td>
+            <td><strong>INFO</strong></td>
+<td> =</td>
+                <td>3</td>
             <td>
-                <p>File to write to</p>
+                
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0i32~3"></span>
-              integer(kind=int32),
+              <span class="anchor" id="variable-max_length_category"></span>
+              integer,
             </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
+              <td>private,</td>
+            <td>
+parameter               
             </td>
             <td>::</td>
-            <td><strong>R0i32</strong></td>
+            <td><strong>MAX_LENGTH_CATEGORY</strong></td>
+<td> =</td>
+                <td>32</td>
             <td>
-                <p>Rank=0, integer, kind=int32</p>
+                
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0r32~3"></span>
-              real(kind=real32),
+              <span class="anchor" id="variable-max_length_location"></span>
+              integer,
             </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
+              <td>private,</td>
+            <td>
+parameter               
             </td>
             <td>::</td>
-            <td><strong>R0r32</strong></td>
+            <td><strong>MAX_LENGTH_LOCATION</strong></td>
+<td> =</td>
+                <td>128</td>
             <td>
-                <p>Rank=0, real   , kind=real32</p>
+                
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0c32~3"></span>
-              complex(kind=real32),
+              <span class="anchor" id="variable-max_length_message"></span>
+              integer,
             </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
+              <td>private,</td>
+            <td>
+parameter               
             </td>
             <td>::</td>
-            <td><strong>R0c32</strong></td>
+            <td><strong>MAX_LENGTH_MESSAGE</strong></td>
+<td> =</td>
+                <td>128</td>
             <td>
-                <p>Rank=0, complex, kind=real32</p>
+                
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0i64~3"></span>
-              integer(kind=int64),
+              <span class="anchor" id="variable-max_length_suggestion"></span>
+              integer,
             </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
+              <td>private,</td>
+            <td>
+parameter               
             </td>
             <td>::</td>
-            <td><strong>R0i64</strong></td>
+            <td><strong>MAX_LENGTH_SUGGESTION</strong></td>
+<td> =</td>
+                <td>128</td>
             <td>
-                <p>Rank=0, integer, kind=int64</p>
+                
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0r64~3"></span>
-              real(kind=real64),
+              <span class="anchor" id="variable-none"></span>
+              integer,
             </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
+              <td>private,</td>
+            <td>
+parameter               
             </td>
             <td>::</td>
-            <td><strong>R0r64</strong></td>
+            <td><strong>NONE</strong></td>
+<td> =</td>
+                <td>0</td>
             <td>
-                <p>Rank=0, real   , kind=real64</p>
+                
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r0c64~3"></span>
-              complex(kind=real64),
+              <span class="anchor" id="variable-warning"></span>
+              integer,
             </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
+              <td>private,</td>
+            <td>
+parameter               
             </td>
             <td>::</td>
-            <td><strong>R0c64</strong></td>
+            <td><strong>WARNING</strong></td>
+<td> =</td>
+                <td>2</td>
             <td>
-                <p>Rank=0, complex, kind=real64</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r0ch~3"></span>
-              character(len=*),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R0ch</strong></td>
-            <td>
-                <p>Rank=0, character</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r1i32~3"></span>
-              integer(kind=int32),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R1i32</strong>(:)</td>
-            <td>
-                <p>Rank=1, integer, kind=int32</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r1r32~3"></span>
-              real(kind=real32),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R1r32</strong>(:)</td>
-            <td>
-                <p>Rank=1, real   , kind=real32</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r1c32~3"></span>
-              complex(kind=real32),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R1c32</strong>(:)</td>
-            <td>
-                <p>Rank=1, complex, kind=real32</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r1i64~3"></span>
-              integer(kind=int64),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R1i64</strong>(:)</td>
-            <td>
-                <p>Rank=1, integer, kind=int64</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r1r64~3"></span>
-              real(kind=real64),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R1r64</strong>(:)</td>
-            <td>
-                <p>Rank=1, real   , kind=real64</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r1c64~3"></span>
-              complex(kind=real64),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R1c64</strong>(:)</td>
-            <td>
-                <p>Rank=1, complex, kind=real64</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r2i32~3"></span>
-              integer(kind=int32),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R2i32</strong>(:,:)</td>
-            <td>
-                <p>Rank=2, integer, kind=int32</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r2r32~3"></span>
-              real(kind=real32),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R2r32</strong>(:,:)</td>
-            <td>
-                <p>Rank=2, real   , kind=real32</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r2c32~3"></span>
-              complex(kind=real32),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R2c32</strong>(:,:)</td>
-            <td>
-                <p>Rank=2, complex, kind=real32</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r2i64~3"></span>
-              integer(kind=int64),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R2i64</strong>(:,:)</td>
-            <td>
-                <p>Rank=2, integer, kind=int64</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r2r64~3"></span>
-              real(kind=real64),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R2r64</strong>(:,:)</td>
-            <td>
-                <p>Rank=2, real   , kind=real64</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-r2c64~3"></span>
-              complex(kind=real64),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>R2c64</strong>(:,:)</td>
-            <td>
-                <p>Rank=2, complex, kind=real64</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-access~3"></span>
-              character(len=*),
-            </td>
-<td>intent(in),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>access</strong></td>
-            <td>
-                <p>Access mode for file</p>
+                
             </td>
         </tr>
     </tbody>
   </table>
 
+        </section>
+        <br>
 
-        </li>
-    </ul>
-  </div>
 
+        <section>
+          <h2>Interfaces</h2>
               <div class="card">
     <div class="card-header bg-light codesum">
       <span class="anchor" id="interface-ptimer_start"></span>
@@ -847,10 +756,10 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-t~5"></span>
+              <span class="anchor" id="variable-t~2"></span>
               type(timer),
             </td>
-<td>intent(out)</td>
+<td>intent(inout)</td>
               <td></td>            <td>
               
             </td>
@@ -896,10 +805,10 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-t~6"></span>
+              <span class="anchor" id="variable-t~3"></span>
               type(timer),
             </td>
-<td>intent(out)</td>
+<td>intent(inout)</td>
               <td></td>            <td>
               
             </td>
@@ -911,7 +820,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-message~6"></span>
+              <span class="anchor" id="variable-message~3"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -932,12 +841,877 @@ large graphs.</div>
     </ul>
   </div>
 
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-pwrite"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    public pure module subroutine pwrite(message, format, file, R0i32, R0r32, R0c32, R0i64, R0r64, R0c64, R0ch, R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, R2i32, R2r32, R2c32, R2i64, R2r64, R2c64, access)  
+    <a href="../proc/pwrite.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-message~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>message</strong></td>
+            <td>
+                <p>Message to print</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-format"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>format</strong></td>
+            <td>
+                <p>Format to use for printing</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-file"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file</strong></td>
+            <td>
+                <p>File to write to</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r0i32"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R0i32</strong></td>
+            <td>
+                <p>Rank=0, integer, kind=int32</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r0r32"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R0r32</strong></td>
+            <td>
+                <p>Rank=0, real   , kind=real32</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r0c32"></span>
+              complex(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R0c32</strong></td>
+            <td>
+                <p>Rank=0, complex, kind=real32</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r0i64"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R0i64</strong></td>
+            <td>
+                <p>Rank=0, integer, kind=int64</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r0r64"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R0r64</strong></td>
+            <td>
+                <p>Rank=0, real   , kind=real64</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r0c64"></span>
+              complex(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R0c64</strong></td>
+            <td>
+                <p>Rank=0, complex, kind=real64</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r0ch"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R0ch</strong></td>
+            <td>
+                <p>Rank=0, character</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1i32"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R1i32</strong>(:)</td>
+            <td>
+                <p>Rank=1, integer, kind=int32</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1r32"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R1r32</strong>(:)</td>
+            <td>
+                <p>Rank=1, real   , kind=real32</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1c32"></span>
+              complex(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R1c32</strong>(:)</td>
+            <td>
+                <p>Rank=1, complex, kind=real32</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1i64"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R1i64</strong>(:)</td>
+            <td>
+                <p>Rank=1, integer, kind=int64</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1r64"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R1r64</strong>(:)</td>
+            <td>
+                <p>Rank=1, real   , kind=real64</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1c64"></span>
+              complex(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R1c64</strong>(:)</td>
+            <td>
+                <p>Rank=1, complex, kind=real64</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r2i32"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R2i32</strong>(:,:)</td>
+            <td>
+                <p>Rank=2, integer, kind=int32</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r2r32"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R2r32</strong>(:,:)</td>
+            <td>
+                <p>Rank=2, real   , kind=real32</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r2c32"></span>
+              complex(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R2c32</strong>(:,:)</td>
+            <td>
+                <p>Rank=2, complex, kind=real32</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r2i64"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R2i64</strong>(:,:)</td>
+            <td>
+                <p>Rank=2, integer, kind=int64</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r2r64"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R2r64</strong>(:,:)</td>
+            <td>
+                <p>Rank=2, real   , kind=real64</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r2c64"></span>
+              complex(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R2c64</strong>(:,:)</td>
+            <td>
+                <p>Rank=2, complex, kind=real64</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-access"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>access</strong></td>
+            <td>
+                <p>Access mode for file</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        </li>
+    </ul>
+  </div>
+
         </section>
         <br>
 
 
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-debug"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/debug.html'>debug</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ok"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ok</strong></td>
+<td> =</td>
+                <td>.true.</td>
+            <td>
+<p>.true. means no error/warning/info</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-category"></span>
+              character(len=MAX_LENGTH_CATEGORY),
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>category</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+<p>category of error/warning/info</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-code"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>code</strong></td>
+<td> =</td>
+                <td>NONE</td>
+            <td>
+<p>error/warning/info code, 0=none</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dbg"></span>
+              logical,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dbg</strong></td>
+<td> =</td>
+                <td>DEBUG_MODE</td>
+            <td>
+<p>debug mode flag</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-location"></span>
+              character(len=MAX_LENGTH_LOCATION),
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>location</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+<p>location of error/warning/info</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-message"></span>
+              character(len=MAX_LENGTH_MESSAGE),
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>message</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+<p>message of error/warning/info</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-severity"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>severity</strong></td>
+<td> =</td>
+                <td>NONE</td>
+            <td>
+<p>severity of the error, 0=none, 1=error, 2=warning, 3=info</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-suggestion"></span>
+              character(len=MAX_LENGTH_SUGGESTION),
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>suggestion</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+<p>suggestion for error/warning/info</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
 
+
+
+        <h4>Type-Bound Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/debug.html#boundprocedure-print'>print</a></strong> => <a href='/home/runner/work/fordebug/fordebug/doc/proc/print_error.html'>print_error</a></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/debug.html#boundprocedure-reset'>reset</a></strong></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/debug.html#boundprocedure-set'>set</a></strong></td>
+                  <td></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+        <section>
+          <h2>Functions</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-debug_loc"></span> <h3>public pure function <a href='../proc/debug_loc.html'>debug_loc</a>(file, line) result(s)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-file~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>file</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-line"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>line</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=256)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-print_error"></span> <h3>private impure subroutine <a href='../proc/print_error.html'>print_error</a>(this)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-this~4"></span>
+              class(<a href='../type/debug.html'>debug</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-reset"></span> <h3>private pure elemental subroutine <a href='../proc/reset.html'>reset</a>(this)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-this~5"></span>
+              class(<a href='../type/debug.html'>debug</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-set"></span> <h3>private pure elemental subroutine <a href='../proc/set.html'>set</a>(this, severity, code, category, message, location, suggestion)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+        <dt>License</dt><dd>BSD 3-Clause</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-this~3"></span>
+              class(<a href='../type/debug.html'>debug</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-severity~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>severity</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-code~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>code</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-category~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>category</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-message~4"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>message</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-location~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>location</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-suggestion~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>suggestion</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
 
 
 
@@ -952,14 +1726,14 @@ large graphs.</div>
           <div class="col">
             <p>
               ForDebug
- was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-07-11T06:44:44.377410+0000             </p>
+ on 2025-08-14T07:03:53.375644+0000             </p>
           </div>
         </div>
         <br>
