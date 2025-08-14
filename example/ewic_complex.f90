@@ -20,7 +20,10 @@ contains
       integer :: b
 
 #if defined(FOR_DEBUG)
-      if (.not. this%err%ok) return
+      if (.not. this%err%ok) then
+         b = 0
+         return
+      end if
 #endif
 
       b = 2 / a
