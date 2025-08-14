@@ -13,7 +13,34 @@ submodule(fordebug) fordebug_smod
          access)
          import int32, int64, real32, real64
          implicit none
-         include 'pwrite.inc'
+         character(*),     intent(in), optional :: message    !! Message to print
+         character(*),     intent(in), optional :: file       !! File to write to
+         character(*),     intent(in), optional :: format     !! Format to use for printing
+
+         character(*),     intent(in), optional :: R0ch       !! Rank=0, character
+
+         integer(int32),   intent(in), optional :: R0i32      !! Rank=0, integer, kind=int32
+         integer(int64),   intent(in), optional :: R0i64      !! Rank=0, integer, kind=int64
+         real(real32),     intent(in), optional :: R0r32      !! Rank=0, real   , kind=real32
+         real(real64),     intent(in), optional :: R0r64      !! Rank=0, real   , kind=real64
+         complex(real32),  intent(in), optional :: R0c32      !! Rank=0, complex, kind=real32
+         complex(real64),  intent(in), optional :: R0c64      !! Rank=0, complex, kind=real64
+
+         integer(int32),   intent(in), optional :: R1i32(:)   !! Rank=1, integer, kind=int32
+         integer(int64),   intent(in), optional :: R1i64(:)   !! Rank=1, integer, kind=int64
+         real(real32),     intent(in), optional :: R1r32(:)   !! Rank=1, real   , kind=real32
+         real(real64),     intent(in), optional :: R1r64(:)   !! Rank=1, real   , kind=real64
+         complex(real32),  intent(in), optional :: R1c32(:)   !! Rank=1, complex, kind=real32
+         complex(real64),  intent(in), optional :: R1c64(:)   !! Rank=1, complex, kind=real64
+
+         integer(int32),   intent(in), optional :: R2i32(:,:) !! Rank=2, integer, kind=int32
+         integer(int64),   intent(in), optional :: R2i64(:,:) !! Rank=2, integer, kind=int64
+         real(real32),     intent(in), optional :: R2r32(:,:) !! Rank=2, real   , kind=real32
+         real(real64),     intent(in), optional :: R2r64(:,:) !! Rank=2, real   , kind=real64
+         complex(real32),  intent(in), optional :: R2c32(:,:) !! Rank=2, complex, kind=real32
+         complex(real64),  intent(in), optional :: R2c64(:,:) !! Rank=2, complex, kind=real64
+
+         character(*),     intent(in), optional :: access     !! Access mode for file
       end subroutine impure_write
       !===============================================================================
 
@@ -23,7 +50,7 @@ submodule(fordebug) fordebug_smod
       pure subroutine impure_timer_start(t)
          import timer
          implicit none
-         type(timer), intent(out) :: t
+         type(timer), intent(inout) :: t
       end subroutine impure_timer_start
       !===============================================================================
 
@@ -33,7 +60,7 @@ submodule(fordebug) fordebug_smod
       pure subroutine impure_timer_stop(t, message)
          import timer
          implicit none
-         type(timer), intent(out) :: t
+         type(timer), intent(inout) :: t
          character(len=*), intent(in), optional :: message
       end subroutine impure_timer_stop
       !===============================================================================
@@ -79,7 +106,7 @@ end submodule fordebug_smod
 
 !===============================================================================
 !> author: Seyed Ali Ghasemi
-subroutine impure_write(&
+impure subroutine impure_write(&
    message, format, file, &
    R0i32, R0r32, R0c32, R0i64, R0r64, R0c64, R0ch, &
    R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, &
@@ -87,7 +114,34 @@ subroutine impure_write(&
    access)
    use iso_fortran_env, only: int32, int64, real32, real64
    implicit none
-   include 'pwrite.inc'
+   character(*),     intent(in), optional :: message    !! Message to print
+   character(*),     intent(in), optional :: file       !! File to write to
+   character(*),     intent(in), optional :: format     !! Format to use for printing
+
+   character(*),     intent(in), optional :: R0ch       !! Rank=0, character
+
+   integer(int32),   intent(in), optional :: R0i32      !! Rank=0, integer, kind=int32
+   integer(int64),   intent(in), optional :: R0i64      !! Rank=0, integer, kind=int64
+   real(real32),     intent(in), optional :: R0r32      !! Rank=0, real   , kind=real32
+   real(real64),     intent(in), optional :: R0r64      !! Rank=0, real   , kind=real64
+   complex(real32),  intent(in), optional :: R0c32      !! Rank=0, complex, kind=real32
+   complex(real64),  intent(in), optional :: R0c64      !! Rank=0, complex, kind=real64
+
+   integer(int32),   intent(in), optional :: R1i32(:)   !! Rank=1, integer, kind=int32
+   integer(int64),   intent(in), optional :: R1i64(:)   !! Rank=1, integer, kind=int64
+   real(real32),     intent(in), optional :: R1r32(:)   !! Rank=1, real   , kind=real32
+   real(real64),     intent(in), optional :: R1r64(:)   !! Rank=1, real   , kind=real64
+   complex(real32),  intent(in), optional :: R1c32(:)   !! Rank=1, complex, kind=real32
+   complex(real64),  intent(in), optional :: R1c64(:)   !! Rank=1, complex, kind=real64
+
+   integer(int32),   intent(in), optional :: R2i32(:,:) !! Rank=2, integer, kind=int32
+   integer(int64),   intent(in), optional :: R2i64(:,:) !! Rank=2, integer, kind=int64
+   real(real32),     intent(in), optional :: R2r32(:,:) !! Rank=2, real   , kind=real32
+   real(real64),     intent(in), optional :: R2r64(:,:) !! Rank=2, real   , kind=real64
+   complex(real32),  intent(in), optional :: R2c32(:,:) !! Rank=2, complex, kind=real32
+   complex(real64),  intent(in), optional :: R2c64(:,:) !! Rank=2, complex, kind=real64
+
+   character(*),     intent(in), optional :: access     !! Access mode for file
    integer :: nunit !! Unit number
 
    ! Open the file if it was specified
@@ -747,7 +801,7 @@ end subroutine impure_write
 
 !===============================================================================
 !> author: Seyed Ali Ghasemi
-subroutine impure_timer_start(t)
+impure subroutine impure_timer_start(t)
    use fortime, only: timer
    implicit none
    type(timer), intent(inout) :: t
@@ -759,7 +813,7 @@ end subroutine impure_timer_start
 
 !===============================================================================
 !> author: Seyed Ali Ghasemi
-subroutine impure_timer_stop(t, message)
+impure subroutine impure_timer_stop(t, message)
    use fortime, only: timer
    implicit none
    type(timer), intent(inout) :: t
