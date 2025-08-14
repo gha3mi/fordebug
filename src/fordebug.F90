@@ -7,7 +7,12 @@ module fordebug
 
    private
 
+#if defined (NOPURE_DEBUG)
+! No pure debug
+public debug, debug_loc
+#else
    public pwrite, timer, ptimer_start, ptimer_stop, debug, debug_loc
+#endif
 
 #if defined(FOR_DEBUG)
    logical, parameter, private :: DEBUG_MODE = .true.
@@ -42,6 +47,9 @@ module fordebug
    end type debug
    !===============================================================================
 
+#if defined (NOPURE_DEBUG)
+! No pure debug
+#else
    interface
       !===============================================================================
       !> author: Seyed Ali Ghasemi
@@ -102,6 +110,7 @@ module fordebug
       end subroutine ptimer_stop
       !===============================================================================
    end interface
+#endif
 
 contains
 

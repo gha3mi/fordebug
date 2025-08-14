@@ -1,3 +1,6 @@
+#if defined (NOPURE_DEBUG)
+! No pure debug
+#else
 submodule(fordebug) fordebug_smod
 
    implicit none
@@ -822,3 +825,4 @@ impure subroutine impure_timer_stop(t, message)
    call t%timer_stop(message=message)
 end subroutine impure_timer_stop
 !===============================================================================
+#endif
