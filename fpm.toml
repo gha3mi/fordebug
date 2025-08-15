@@ -29,7 +29,7 @@ fortime = {git="https://github.com/gha3mi/fortime.git"}
 [[example]]
 name       = "example_p"
 source-dir = "example"
-main       = "example_p.f90"
+main       = "example_p.F90"
 
 [[example]]
 name       = "ewic_simple"
@@ -39,7 +39,7 @@ main       = "ewic_simple.f90"
 [[example]]
 name       = "ewic_complex"
 source-dir = "example"
-main       = "ewic_complex.f90"
+main       = "ewic_complex.F90"
 
 [[test]]
 name="test1"
