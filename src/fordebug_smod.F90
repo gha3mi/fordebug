@@ -1,4 +1,3 @@
-#ifndef NOPURE_DEBUG
 submodule(fordebug) fordebug_smod
 
    implicit none
@@ -6,7 +5,11 @@ submodule(fordebug) fordebug_smod
    interface
       !===============================================================================
       !> author: Seyed Ali Ghasemi
+#ifndef NOPURE_DEBUG
       pure subroutine impure_write(&
+#else
+      impure subroutine impure_write(&
+#endif
          message, format, file, &
          R0i32, R0r32, R0c32, R0i64, R0r64, R0c64, R0ch, &
          R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, &
@@ -48,7 +51,11 @@ submodule(fordebug) fordebug_smod
 
       !===============================================================================
       !> author: Seyed Ali Ghasemi
+#ifndef NOPURE_DEBUG
       pure subroutine impure_timer_start(t)
+#else
+      impure subroutine impure_timer_start(t)
+#endif
          import timer
          implicit none
          type(timer), intent(inout) :: t
@@ -58,7 +65,11 @@ submodule(fordebug) fordebug_smod
 
       !===============================================================================
       !> author: Seyed Ali Ghasemi
+#ifndef NOPURE_DEBUG
       pure subroutine impure_timer_stop(t, message)
+#else
+      impure subroutine impure_timer_stop(t, message)
+#endif
          import timer
          implicit none
          type(timer), intent(inout) :: t
@@ -99,12 +110,9 @@ contains
    end procedure ptimer_stop
    !===============================================================================
 end submodule fordebug_smod
-#endif
 
 
 
-
-#ifndef NOPURE_DEBUG
 !===============================================================================
 !> author: Seyed Ali Ghasemi
 impure subroutine impure_write(&
@@ -823,4 +831,3 @@ impure subroutine impure_timer_stop(t, message)
    call t%timer_stop(message=message)
 end subroutine impure_timer_stop
 !===============================================================================
-#endif

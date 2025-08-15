@@ -2,16 +2,16 @@ program test1
    use iso_fortran_env, only: rk => real64
    implicit none
 
-#ifndef NOPURE_DEBUG
    real(rk), dimension(:), allocatable :: y
    call pure_subroutine(10.0_rk, 7, y)
-#endif
 
-#ifndef NOPURE_DEBUG
 contains
 
+#ifndef NOPURE_DEBUG
    pure subroutine pure_subroutine(x, n, y)
-
+#else
+   impure subroutine pure_subroutine(x, n, y)
+#endif
       use fordebug, only: timer, pwrite, ptimer_start, ptimer_stop
       implicit none
 
@@ -46,7 +46,7 @@ contains
       call ptimer_start(t)
 
 ! nvfortran 25.5.0 -> NVFORTRAN-S-1074-Procedure call in Do Concurrent is not supported yet
-#if defined(__NVCOMPILER)
+#if defined (__NVCOMPILER) || defined(NOPURE_DEBUG)
       do i=2,n
 #else
       do concurrent (i=2:n)
@@ -75,5 +75,4 @@ contains
       ! Write Rank 0 real64 with a message and format to a file. message and format are optional
       call pwrite(message='y = ',R1r64=y, file='test/test1.txt', access='append')
    end subroutine pure_subroutine
-#endif
 end program test1

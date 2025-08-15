@@ -7,19 +7,15 @@ program example_p
    print*, " "
    print*, "Running example..."
 
-#if defined (NOPURE_DEBUG)
-! No pure debug
-#else
    call pure_subroutine(10.0_rk, 7, y)
-#endif
 
-#if defined (NOPURE_DEBUG)
-! No pure debug
-#else
 contains
 
+#ifndef NOPURE_DEBUG
    pure subroutine pure_subroutine(x, n, y)
-
+#else
+   impure subroutine pure_subroutine(x, n, y)
+#endif
       use fordebug, only: timer, pwrite, ptimer_start, ptimer_stop
       implicit none
 
@@ -33,19 +29,19 @@ contains
       call pwrite(message='x = ', R0r64=x, format='(a,f7.3)')
 
       ! Write Rank 0 real64 with a message and format to a file. message and format are optional
-      call pwrite(message='x = ', R0r64=x, format='(a,f7.3)', file='example/example_p.txt', access='append')
+      call pwrite(message='x = ', R0r64=x, format='(a,f7.3)', file='test/example_p.txt', access='append')
 
       ! Print Rank 0 int32 with a message and format. message and format are optional
       call pwrite(message='n = ', R0i32=n, format='(a,i3)')
 
       ! Write Rank 0 int32 with a message and format to a file. message and format are optional
-      call pwrite(message='n = ', R0i32=n, format='(a,i3)', file='example/example_p.txt', access='append')
+      call pwrite(message='n = ', R0i32=n, format='(a,i3)', file='test/example_p.txt', access='append')
 
       ! Print Rank 0 character with a format. format is optional
       call pwrite(R0ch='start loop', format='(a)')
 
       ! Write Rank 0 character with a format to a file. format, access are optional
-      call pwrite(R0ch='start loop', format='(a)', file='example/example_p.txt', access='append')
+      call pwrite(R0ch='start loop', format='(a)', file='test/example_p.txt', access='append')
 
       allocate(y(n))
       y(1) = 0.0_rk
@@ -53,14 +49,19 @@ contains
       ! start pure timer
       call ptimer_start(t)
 
+! nvfortran 25.5.0 -> NVFORTRAN-S-1074-Procedure call in Do Concurrent is not supported yet
+#if defined (__NVCOMPILER) || defined(NOPURE_DEBUG)
+      do i=2,n
+#else
       do concurrent (i=2:n)
+#endif
          y(i) = y(i-1) + x
 
          ! Print Rank 0 real64 with a message and format. message and format are optional
          call pwrite(message='y(i) = ', R0r64=y(i), format='(a,f7.3)')
 
          ! Write Rank 0 real64 with a message and format to a file. message and format are optional
-         call pwrite(message='y(i) = ', R0r64=y(i), format='(a,f7.3)', file='example/example_p.txt', access='append')
+         call pwrite(message='y(i) = ', R0r64=y(i), format='(a,f7.3)', file='test/example_p.txt', access='append')
       end do
 
       ! stop pure timer
@@ -70,14 +71,12 @@ contains
       call pwrite(R0ch='end loop', format='(a)') ! format is optional
 
       ! Write Rank 0 real64 with a message and format to a file. message and format are optional
-      call pwrite(R0ch='end loop', format='(a)', file='example/example_p.txt', access='append')
+      call pwrite(R0ch='end loop', format='(a)', file='test/example_p.txt', access='append')
 
       ! Print Rank 0 real64 with a message and format. message and format are optional
       call pwrite(message='y = ',R1r64=y)
 
       ! Write Rank 0 real64 with a message and format to a file. message and format are optional
-      call pwrite(message='y = ',R1r64=y, file='example/example_p.txt', access='append')
+      call pwrite(message='y = ',R1r64=y, file='test/example_p.txt', access='append')
    end subroutine pure_subroutine
-#endif
-
 end program example_p

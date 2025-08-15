@@ -91,7 +91,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="38.5% of total for programs.">37 statements</a>
+                 title="38.1% of total for programs.">37 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -595,19 +595,15 @@ large graphs.</div>
 <span class="w">   </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"></span>
 <span class="w">   </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Running example...&quot;</span><span class="w"></span>
 
-<span class="cp">#if defined (NOPURE_DEBUG)</span>
-<span class="c">! No pure debug</span>
-<span class="cp">#else</span>
 <span class="w">   </span><span class="k">call </span><span class="n">pure_subroutine</span><span class="p">(</span><span class="mi">1</span><span class="mf">0.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"></span>
-<span class="cp">#endif</span>
 
-<span class="cp">#if defined (NOPURE_DEBUG)</span>
-<span class="c">! No pure debug</span>
+<span class="k">contains</span><span class="w"></span>
+
+<span class="cp">#ifndef NOPURE_DEBUG</span>
+<span class="w">   </span><span class="k">pure subroutine </span><span class="n">pure_subroutine</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 <span class="cp">#else</span>
-<span class="k">contains</span>
-
-<span class="k">   pure subroutine </span><span class="n">pure_subroutine</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"></span>
-
+<span class="w">   </span><span class="k">impure subroutine </span><span class="n">pure_subroutine</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="cp">#endif</span>
 <span class="w">      </span><span class="k">use </span><span class="n">fordebug</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">timer</span><span class="p">,</span><span class="w"> </span><span class="n">pwrite</span><span class="p">,</span><span class="w"> </span><span class="n">ptimer_start</span><span class="p">,</span><span class="w"> </span><span class="n">ptimer_stop</span><span class="w"></span>
 <span class="w">      </span><span class="k">implicit none</span>
 
@@ -621,19 +617,19 @@ large graphs.</div>
 <span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;x = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">R0r64</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a,f7.3)&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Write Rank 0 real64 with a message and format to a file. message and format are optional</span>
-<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;x = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">R0r64</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a,f7.3)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;example/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;x = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">R0r64</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a,f7.3)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;test/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Print Rank 0 int32 with a message and format. message and format are optional</span>
 <span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;n = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">R0i32</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a,i3)&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Write Rank 0 int32 with a message and format to a file. message and format are optional</span>
-<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;n = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">R0i32</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a,i3)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;example/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;n = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">R0i32</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a,i3)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;test/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Print Rank 0 character with a format. format is optional</span>
 <span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">R0ch</span><span class="o">=</span><span class="s1">&#39;start loop&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Write Rank 0 character with a format to a file. format, access are optional</span>
-<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">R0ch</span><span class="o">=</span><span class="s1">&#39;start loop&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;example/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">R0ch</span><span class="o">=</span><span class="s1">&#39;start loop&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;test/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">      </span><span class="k">allocate</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"></span>
 <span class="w">      </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_rk</span><span class="w"></span>
@@ -641,14 +637,19 @@ large graphs.</div>
 <span class="w">      </span><span class="c">! start pure timer</span>
 <span class="w">      </span><span class="k">call </span><span class="n">ptimer_start</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"></span>
 
+<span class="c">! nvfortran 25.5.0 -&gt; NVFORTRAN-S-1074-Procedure call in Do Concurrent is not supported yet</span>
+<span class="cp">#if defined (__NVCOMPILER) || defined(NOPURE_DEBUG)</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
+<span class="cp">#else</span>
 <span class="w">      </span><span class="k">do</span><span class="w"> </span><span class="k">concurrent</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="cp">#endif</span>
 <span class="w">         </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
 
 <span class="w">         </span><span class="c">! Print Rank 0 real64 with a message and format. message and format are optional</span>
 <span class="w">         </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;y(i) = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">R0r64</span><span class="o">=</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a,f7.3)&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">         </span><span class="c">! Write Rank 0 real64 with a message and format to a file. message and format are optional</span>
-<span class="w">         </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;y(i) = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">R0r64</span><span class="o">=</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a,f7.3)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;example/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;y(i) = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">R0r64</span><span class="o">=</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a,f7.3)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;test/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">end do</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! stop pure timer</span>
@@ -658,16 +659,14 @@ large graphs.</div>
 <span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">R0ch</span><span class="o">=</span><span class="s1">&#39;end loop&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">! format is optional</span>
 
 <span class="w">      </span><span class="c">! Write Rank 0 real64 with a message and format to a file. message and format are optional</span>
-<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">R0ch</span><span class="o">=</span><span class="s1">&#39;end loop&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;example/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">R0ch</span><span class="o">=</span><span class="s1">&#39;end loop&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="o">=</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;test/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Print Rank 0 real64 with a message and format. message and format are optional</span>
 <span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;y = &#39;</span><span class="p">,</span><span class="n">R1r64</span><span class="o">=</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 
 <span class="w">      </span><span class="c">! Write Rank 0 real64 with a message and format to a file. message and format are optional</span>
-<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;y = &#39;</span><span class="p">,</span><span class="n">R1r64</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;example/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">pwrite</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;y = &#39;</span><span class="p">,</span><span class="n">R1r64</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;test/example_p.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="w">   </span><span class="k">end subroutine </span><span class="n">pure_subroutine</span><span class="w"></span>
-<span class="cp">#endif</span>
-
 <span class="k">end program </span><span class="n">example_p</span><span class="w"></span>
 </pre></div>
 
@@ -691,7 +690,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-08-15T15:35:16.601862+0000             </p>
+ on 2025-08-15T15:51:03.072213+0000             </p>
           </div>
         </div>
         <br>
