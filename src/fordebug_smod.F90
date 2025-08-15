@@ -98,13 +98,13 @@ contains
       call impure_timer_stop(t, message)
    end procedure ptimer_stop
    !===============================================================================
-
 end submodule fordebug_smod
+#endif
 
 
 
 
-
+#ifndef NOPURE_DEBUG
 !===============================================================================
 !> author: Seyed Ali Ghasemi
 impure subroutine impure_write(&
