@@ -1,6 +1,4 @@
-#if defined (NOPURE_DEBUG)
-! No pure debug
-#else
+#ifndef NOPURE_DEBUG
 submodule(fordebug) fordebug_smod
 
    implicit none

@@ -3,7 +3,7 @@ program test1
    implicit none
 
    real(rk), dimension(:), allocatable :: y
-
+#ifndef NOPURE_DEBUG
    call pure_subroutine(10.0_rk, 7, y)
 
 contains
@@ -73,5 +73,5 @@ contains
       ! Write Rank 0 real64 with a message and format to a file. message and format are optional
       call pwrite(message='y = ',R1r64=y, file='test/test1.txt', access='append')
    end subroutine pure_subroutine
-
+#endif
 end program test1
