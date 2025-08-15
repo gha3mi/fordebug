@@ -7,12 +7,7 @@ module fordebug
 
    private
 
-#if defined (NOPURE_DEBUG)
-! No pure debug
-public debug, debug_loc
-#else
    public pwrite, timer, ptimer_start, ptimer_stop, debug, debug_loc
-#endif
 
 #if defined(FOR_DEBUG)
    logical, parameter, private :: DEBUG_MODE = .true.
@@ -47,13 +42,14 @@ public debug, debug_loc
    end type debug
    !===============================================================================
 
-#if defined (NOPURE_DEBUG)
-! No pure debug
-#else
    interface
       !===============================================================================
       !> author: Seyed Ali Ghasemi
+#ifndef NOPURE_DEBUG
       pure module subroutine pwrite(&
+#else
+      impure module subroutine pwrite(&
+#endif
          message, format, file, &
          R0i32, R0r32, R0c32, R0i64, R0r64, R0c64, R0ch, &
          R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, &
@@ -94,7 +90,11 @@ public debug, debug_loc
 
       !===============================================================================
       !> author: Seyed Ali Ghasemi
+#ifndef NOPURE_DEBUG
       pure module subroutine ptimer_start(t)
+#else
+      impure module subroutine ptimer_start(t)
+#endif
          implicit none
          type(timer), intent(inout) :: t
       end subroutine ptimer_start
@@ -103,14 +103,17 @@ public debug, debug_loc
 
       !===============================================================================
       !> author: Seyed Ali Ghasemi
+#ifndef NOPURE_DEBUG
       pure module subroutine ptimer_stop(t, message)
+#else
+      impure module subroutine ptimer_stop(t, message)
+#endif
          implicit none
          type(timer), intent(inout) :: t
          character(len=*), intent(in), optional :: message
       end subroutine ptimer_stop
       !===============================================================================
    end interface
-#endif
 
 contains
 
