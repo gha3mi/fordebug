@@ -2,10 +2,12 @@ program test1
    use iso_fortran_env, only: rk => real64
    implicit none
 
-   real(rk), dimension(:), allocatable :: y
 #ifndef NOPURE_DEBUG
+   real(rk), dimension(:), allocatable :: y
    call pure_subroutine(10.0_rk, 7, y)
+#endif
 
+#ifndef NOPURE_DEBUG
 contains
 
    pure subroutine pure_subroutine(x, n, y)
