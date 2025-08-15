@@ -2,12 +2,12 @@ program example_p
    use iso_fortran_env, only: rk => real64
    implicit none
 
-   real(rk), dimension(:), allocatable :: y
+   real(rk), dimension(:), allocatable :: a
 
    print*, " "
    print*, "Running example..."
 
-   call pure_subroutine(10.0_rk, 7, y)
+   call pure_subroutine(10.0_rk, 7, a)
 
 contains
 

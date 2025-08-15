@@ -2,8 +2,8 @@ program test1
    use iso_fortran_env, only: rk => real64
    implicit none
 
-   real(rk), dimension(:), allocatable :: y
-   call pure_subroutine(10.0_rk, 7, y)
+   real(rk), dimension(:), allocatable :: a
+   call pure_subroutine(10.0_rk, 7, a)
 
 contains
 
