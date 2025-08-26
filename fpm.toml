@@ -1,10 +1,13 @@
-name = "fordebug"
-version = "VERSION"
-license = "BSD 3-Clause License"
-author = "Seyed Ali Ghasemi"
-maintainer = "info@gha3mi.com"
-homepage = "https://github.com/gha3mi/fordebug"
-copyright = "Copyright 2023, Seyed Ali Ghasemi"
+name        = "fordebug"
+description = "A Fortran library for handling errors, warnings and info messages with debugging support in pure procedures"
+version     = "VERSION"
+license     = "BSD 3-Clause License"
+author      = "Seyed Ali Ghasemi"
+maintainer  = "info@gha3mi.com"
+homepage    = "https://github.com/gha3mi/fordebug"
+copyright   = "Copyright 2023-2025, Seyed Ali Ghasemi"
+categories  = ["debugging"]
+keywords    = ["Fortran", "debug", "pure", "error", "warning", "info", "handling"]
 
 [build]
 auto-executables = false
