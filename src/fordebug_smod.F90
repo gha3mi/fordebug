@@ -121,7 +121,7 @@ impure subroutine impure_write(&
    R1i32, R1r32, R1c32, R1i64, R1r64, R1c64, &
    R2i32, R2r32, R2c32, R2i64, R2r64, R2c64, &
    access)
-   use, intrinsic :: iso_fortran_env, only: rk => int32, int64, real32, real64
+   use, intrinsic :: iso_fortran_env, only: int32, int64, real32, real64
    implicit none
    character(*),     intent(in), optional :: message    !! Message to print
    character(*),     intent(in), optional :: file       !! File to write to
