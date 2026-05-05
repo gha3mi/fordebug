@@ -105,13 +105,18 @@ fpm run --example --all --flag "-DFOR_DEBUG"
 ## Status
 
 <!-- STATUS:setup-fortran-conda:START -->
-| Compiler   | macos | ubuntu | windows |
-|------------|----------------------|----------------------|----------------------|
-| `flang-new` | - | fpm ❌  cmake ✅ | fpm ❌  cmake ❌ |
-| `gfortran` | fpm ✅  cmake ✅ | fpm ✅  cmake ✅ | fpm ✅  cmake ✅ |
-| `ifx` | - | fpm ✅  cmake ✅ | fpm ✅  cmake ❌ |
-| `lfortran` | fpm ❌  cmake ❌ | fpm ❌  cmake ❌ | fpm ❌  cmake ❌ |
-| `nvfortran` | - | fpm ✅  cmake ✅ | - |
+
+| OS | Compiler | Version | fpm | cmake |
+| --- | --- | ---: | :---: | :---: |
+| ubuntu 24.04 | `flang-new` | 22.1.4 | 0.13.0 ✅ | 4.3.2 ✅ |
+| ubuntu 24.04 | `gfortran` | 15.2.0 | 0.13.0 ✅ | 4.3.2 ✅ |
+| ubuntu 24.04 | `ifx` | 2026.0.0 | 0.13.0 ✅ | 4.3.2 ✅ |
+| ubuntu 24.04 | `nvfortran` | 26.3 | 0.13.0 ✅ | 4.3.2 ✅ |
+| macos 15 | `gfortran` | 15.2.0 | 0.13.0 ✅ | 4.3.2 ✅ |
+| windows 2025 | `flang-new` | 22.1.4 | 0.13.0 ✅ | 4.3.2 ❌ |
+| windows 2025 | `gfortran` | 15.2.0 | 0.13.0 ✅ | 4.3.2 ✅ |
+| windows 2025 | `ifx` | 2026.0.0 | 0.12.0 ✅ | 4.3.2 ❌ |
+
 <!-- STATUS:setup-fortran-conda:END -->
 
 ## API documentation
