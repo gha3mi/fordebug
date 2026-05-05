@@ -1,5 +1,5 @@
 program test1
-   use iso_fortran_env, only: rk => real64
+   use, intrinsic :: iso_fortran_env, only: rk => real64
    implicit none
 
    real(rk), dimension(:), allocatable :: a
