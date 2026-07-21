@@ -13,6 +13,11 @@ option(BUILD_SHARED_LIBS "Build shared libraries by default" OFF)
 option(${PROJECT_NAME_UPPER}_BUILD_EXAMPLES "Build example programs" OFF)
 option(${PROJECT_NAME_UPPER}_BUILD_TESTS "Build unit tests" OFF)
 
+# Export Fortran procedures when building DLLs with MS-compatible linkers.
+if(WIN32 AND BUILD_SHARED_LIBS)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif()
+
 # mod directory
 set(Fortran_MODULE_DIRECTORY ${CMAKE_BINARY_DIR}/mod)
 
