@@ -40,19 +40,19 @@ jobs:
 
       - name: fpm test (debug)
         if: always()
-        run: fpm test --compiler ${{ matrix.compiler }} --profile debug --verbose
+        run: fpm test --compiler ${{ env.FPM_FC }} --profile debug --verbose
 
       - name: fpm test (release)
         if: always()
-        run: fpm test --compiler ${{ matrix.compiler }} --profile release --verbose
+        run: fpm test --compiler ${{ env.FPM_FC }} --profile release --verbose
 
       - name: fpm example (debug)
         if: always()
-        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile debug --flag "-DFOR_DEBUG" --verbose
+        run: fpm run --example --all --compiler ${{ env.FPM_FC }} --profile debug --flag "-DFOR_DEBUG" --verbose
 
       - name: fpm example (release)
         if: always()
-        run: fpm run --example --all --compiler ${{ matrix.compiler }} --profile release --flag "-DFOR_DEBUG" --verbose
+        run: fpm run --example --all --compiler ${{ env.FPM_FC }} --profile release --flag "-DFOR_DEBUG" --verbose
 
   test_cmake:
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
