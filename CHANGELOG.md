@@ -1,3 +1,38 @@
+## [v0.2.1](https://github.com/gha3mi/fordebug/compare/v0.2.0...v0.2.1) - 2026-07-21
+
+
+### Fixes
+
+* fix: rename .f90 to .F90 ([68f5202](https://github.com/gha3mi/fordebug/commit/68f520286f8f8c50e6145a3f695fea485dfac444)) by [@gha3mi](https://github.com/gha3mi)
+* fix: NOPURE_DEBUG compilation issue ([c5b25fc](https://github.com/gha3mi/fordebug/commit/c5b25fc58d9bae63f5843abbcb3096de5263789d)) by [@gha3mi](https://github.com/gha3mi)
+* fix: update use statement for iso_fortran_env to intrinsic ([8950b40](https://github.com/gha3mi/fordebug/commit/8950b4047a645fb93ee322d9ff173293847ac5da)) by [@gha3mi](https://github.com/gha3mi)
+* fix: update CI/CD workflow ([fee972d](https://github.com/gha3mi/fordebug/commit/fee972d5d0592d294948a9dfe230323c83d8c75d)) by [@gha3mi](https://github.com/gha3mi)
+* fix: remove alias rk ([c82814f](https://github.com/gha3mi/fordebug/commit/c82814fb9d76b3b986e977b2206a93e175a20fdc)) by [@gha3mi](https://github.com/gha3mi)
+* fix: update copyright year to 2026 ([4bb79da](https://github.com/gha3mi/fordebug/commit/4bb79da78f433dbab49f5cb3ef4ae00a7432a5d6)) by [@gha3mi](https://github.com/gha3mi)
+* fix: fortitude errors ([ccafe75](https://github.com/gha3mi/fordebug/commit/ccafe75df37c8eade2b1979596115c87a4381b02)) by [@gha3mi](https://github.com/gha3mi)
+* fix: update file paths in pwrite calls and adjust concurrent loop variable handling ([c7b7bf4](https://github.com/gha3mi/fordebug/commit/c7b7bf41a787e69634d1d46f42e92192c3e61ad5)) by [@gha3mi](https://github.com/gha3mi)
+* fix: comment out file writing in pwrite calls in example_p.F90 and test1.f90 ([700e7eb](https://github.com/gha3mi/fordebug/commit/700e7ebe47d5d88215e77fbe270d471b538fd213)) by [@gha3mi](https://github.com/gha3mi)
+* fix: enable exporting procedures for MS-compatible linkers ([542ed2a](https://github.com/gha3mi/fordebug/commit/542ed2a0523d3446607c92f6571ad7bafe154507)) by [@gha3mi](https://github.com/gha3mi)
+* fix: update copyright year ([8d73ed3](https://github.com/gha3mi/fordebug/commit/8d73ed3aff10b45ba16f9c79212ffcb9e48b2c9d)) by [@gha3mi](https://github.com/gha3mi)
+
+### Others
+
+* add new feature and fix bugs ([#5](https://github.com/gha3mi/fordebug/pull/5)) by [@gha3mi](https://github.com/gha3mi)
+* update README.md status table ([#4](https://github.com/gha3mi/fordebug/pull/4)) by [@gha3mi](https://github.com/gha3mi)
+* chore: update fpm.toml metadata ([ce45235](https://github.com/gha3mi/fordebug/commit/ce452350e26d9e94f6748021baaf60a0981dfd86)) by [@gha3mi](https://github.com/gha3mi)
+* Update README.md status table [ci skip] (#7) ([28a4595](https://github.com/gha3mi/fordebug/commit/28a4595ca494511710e8e28fb6f6dc22def09efd)) by [@gha3mi](https://github.com/gha3mi)
+* doc: fix typo ([d28e482](https://github.com/gha3mi/fordebug/commit/d28e482e59fd04357b5f1bdef5e3c6025173a489)) by [@gha3mi](https://github.com/gha3mi)
+* CI: update fpm test commands to use FPM_FC environment variable ([79804e0](https://github.com/gha3mi/fordebug/commit/79804e030ddf05384947783387152a3b3a58d974)) by [@gha3mi](https://github.com/gha3mi)
+* Update README.md status table [ci skip] (#8) ([3d5653f](https://github.com/gha3mi/fordebug/commit/3d5653f80f0c043e4116b6085c69637ffb08ff46)) by [@gha3mi](https://github.com/gha3mi)
+
+
+### Contributors
+- [@gha3mi](https://github.com/gha3mi)
+
+
+
+Full Changelog: [v0.2.0...v0.2.1](https://github.com/gha3mi/fordebug/compare/v0.2.0...v0.2.1)
+
 ## [v0.2.0](https://github.com/gha3mi/fordebug/compare/v0.1.0...v0.2.0) - 2025-08-13
 
 
@@ -38,5 +73,3 @@
 
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/gha3mi/fordebug/compare/v0.1.0...v0.2.0)
-
-
