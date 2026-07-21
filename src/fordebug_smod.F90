@@ -156,9 +156,9 @@ impure subroutine impure_write(&
    ! Open the file if it was specified
    if (present(file)) then
       if (present(access)) then
-         open(newunit=nunit, file=trim(file), access=access, action='write')
+         open(newunit=nunit, file=trim(file), access=access, action="write")
       else
-         open(newunit=nunit, file=trim(file), action='write')
+         open(newunit=nunit, file=trim(file), action="write")
       end if
    end if
 
