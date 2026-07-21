@@ -273,7 +273,7 @@
 </g>
 </g>
 <!-- timer_start -->
-<g id="call~~graph~~CallGraph_node25" class="node">
+<g id="call~~graph~~CallGraph_node27" class="node">
 <title>timer_start</title>
 <polygon fill="#777777" stroke="#777777" points="254.79,-360.27 185.52,-360.27 185.52,-336 254.79,-336 254.79,-360.27"/>
 <text xml:space="preserve" text-anchor="middle" x="220.16" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer_start</text>
@@ -294,7 +294,7 @@
 </g>
 </g>
 <!-- timer_stop -->
-<g id="call~~graph~~CallGraph_node26" class="node">
+<g id="call~~graph~~CallGraph_node28" class="node">
 <title>timer_stop</title>
 <polygon fill="#777777" stroke="#777777" points="254.04,-402.27 186.27,-402.27 186.27,-378 254.04,-378 254.04,-402.27"/>
 <text xml:space="preserve" text-anchor="middle" x="220.16" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer_stop</text>
@@ -404,6 +404,30 @@
 <path fill="none" stroke="#003fff" d="M268.79,-167.81C276.75,-165.26 284.84,-162.35 292.29,-159.13 309.3,-151.79 311.38,-145.7 328.29,-138.13 337.03,-134.22 346.73,-130.68 355.9,-127.67"/>
 <polygon fill="#003fff" stroke="#003fff" points="356.79,-131.06 365.29,-124.72 354.7,-124.38 356.79,-131.06"/>
 </g>
+<!-- local -->
+<g id="call~~graph~~CallGraph_node25" class="node">
+<title>local</title>
+<polygon fill="#777777" stroke="#777777" points="421.05,-87.27 367.05,-87.27 367.05,-63 421.05,-63 421.05,-87.27"/>
+<text xml:space="preserve" text-anchor="middle" x="394.05" y="-71.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">local</text>
+</g>
+<!-- proc~pure_subroutine&#45;&gt;local -->
+<g id="call~~graph~~CallGraph_edge9" class="edge">
+<title>proc~pure_subroutine&#45;&gt;local</title>
+<path fill="none" stroke="#003fff" d="M269.16,-171.45C277.43,-168.48 285.52,-164.49 292.29,-159.13 317.58,-139.13 303.27,-116.48 328.29,-96.14 336.13,-89.76 345.97,-85.3 355.58,-82.19"/>
+<polygon fill="#003fff" stroke="#003fff" points="356.48,-85.57 365.18,-79.52 354.61,-78.82 356.48,-85.57"/>
+</g>
+<!-- shared -->
+<g id="call~~graph~~CallGraph_node26" class="node">
+<title>shared</title>
+<polygon fill="#777777" stroke="#777777" points="421.05,-255.27 367.05,-255.27 367.05,-231 421.05,-231 421.05,-255.27"/>
+<text xml:space="preserve" text-anchor="middle" x="394.05" y="-239.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shared</text>
+</g>
+<!-- proc~pure_subroutine&#45;&gt;shared -->
+<g id="call~~graph~~CallGraph_edge10" class="edge">
+<title>proc~pure_subroutine&#45;&gt;shared</title>
+<path fill="none" stroke="#003fff" d="M268.79,-192.46C276.75,-195.01 284.84,-197.92 292.29,-201.13 309.3,-208.48 311.38,-214.57 328.29,-222.13 337.03,-226.05 346.73,-229.59 355.9,-232.6"/>
+<polygon fill="#003fff" stroke="#003fff" points="354.7,-235.89 365.29,-235.55 356.79,-229.21 354.7,-235.89"/>
+</g>
 <!-- proc~pure_subroutine~2 -->
 <g id="call~~graph~~CallGraph_node17" class="node">
 <title>proc~pure_subroutine~2</title>
@@ -414,22 +438,34 @@
 </g>
 </g>
 <!-- proc~pure_subroutine~2&#45;&gt;interface~ptimer_start -->
-<g id="call~~graph~~CallGraph_edge9" class="edge">
+<g id="call~~graph~~CallGraph_edge11" class="edge">
 <title>proc~pure_subroutine~2&#45;&gt;interface~ptimer_start</title>
 <path fill="none" stroke="#0000ff" d="M268.79,-150.46C276.75,-153.01 284.84,-155.92 292.29,-159.13 309.3,-166.48 311.38,-172.57 328.29,-180.13 333.55,-182.49 339.15,-184.71 344.78,-186.76"/>
 <polygon fill="#0000ff" stroke="#0000ff" points="343.52,-190.03 354.12,-189.99 345.81,-183.41 343.52,-190.03"/>
 </g>
 <!-- proc~pure_subroutine~2&#45;&gt;interface~ptimer_stop -->
-<g id="call~~graph~~CallGraph_edge10" class="edge">
+<g id="call~~graph~~CallGraph_edge12" class="edge">
 <title>proc~pure_subroutine~2&#45;&gt;interface~ptimer_stop</title>
 <path fill="none" stroke="#0000ff" d="M269.04,-143.98C292.77,-146.88 321.36,-150.38 345.1,-153.28"/>
 <polygon fill="#0000ff" stroke="#0000ff" points="344.47,-156.73 354.82,-154.46 345.32,-149.78 344.47,-156.73"/>
 </g>
 <!-- proc~pure_subroutine~2&#45;&gt;interface~pwrite -->
-<g id="call~~graph~~CallGraph_edge11" class="edge">
+<g id="call~~graph~~CallGraph_edge13" class="edge">
 <title>proc~pure_subroutine~2&#45;&gt;interface~pwrite</title>
 <path fill="none" stroke="#0000ff" d="M269.04,-132.29C296.31,-128.95 329.99,-124.84 355.36,-121.74"/>
 <polygon fill="#0000ff" stroke="#0000ff" points="355.73,-125.22 365.23,-120.53 354.88,-118.27 355.73,-125.22"/>
+</g>
+<!-- proc~pure_subroutine~2&#45;&gt;local -->
+<g id="call~~graph~~CallGraph_edge14" class="edge">
+<title>proc~pure_subroutine~2&#45;&gt;local</title>
+<path fill="none" stroke="#0000ff" d="M268.79,-125.81C276.75,-123.26 284.84,-120.35 292.29,-117.14 309.3,-109.79 311.38,-103.7 328.29,-96.14 337.03,-92.22 346.73,-88.68 355.9,-85.67"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="356.79,-89.06 365.29,-82.72 354.7,-82.38 356.79,-89.06"/>
+</g>
+<!-- proc~pure_subroutine~2&#45;&gt;shared -->
+<g id="call~~graph~~CallGraph_edge15" class="edge">
+<title>proc~pure_subroutine~2&#45;&gt;shared</title>
+<path fill="none" stroke="#0000ff" d="M269.16,-146.82C277.43,-149.79 285.52,-153.78 292.29,-159.13 317.58,-179.14 303.27,-201.79 328.29,-222.13 336.13,-228.51 345.97,-232.97 355.58,-236.08"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="354.61,-239.45 365.18,-238.75 356.48,-232.7 354.61,-239.45"/>
 </g>
 <!-- proc~pwrite -->
 <g id="call~~graph~~CallGraph_node18" class="node">
@@ -441,7 +477,7 @@
 </g>
 </g>
 <!-- proc~pwrite&#45;&gt;interface~impure_write -->
-<g id="call~~graph~~CallGraph_edge12" class="edge">
+<g id="call~~graph~~CallGraph_edge16" class="edge">
 <title>proc~pwrite&#45;&gt;interface~impure_write</title>
 <path fill="none" stroke="#3f00ff" d="M83.42,-96.14C106.29,-96.14 140.03,-96.14 168.15,-96.14"/>
 <polygon fill="#3f00ff" stroke="#3f00ff" points="167.89,-99.64 177.89,-96.14 167.89,-92.64 167.89,-99.64"/>
@@ -474,7 +510,7 @@
 </g>
 </g>
 <!-- program~complex&#45;&gt;proc~my_subroutine -->
-<g id="call~~graph~~CallGraph_edge13" class="edge">
+<g id="call~~graph~~CallGraph_edge17" class="edge">
 <title>program~complex&#45;&gt;proc~my_subroutine</title>
 <path fill="none" stroke="#ff00ff" d="M84.52,-474.13C99.02,-474.13 117.68,-474.13 136.45,-474.13"/>
 <polygon fill="#ff00ff" stroke="#ff00ff" points="136.28,-477.64 146.28,-474.14 136.28,-470.64 136.28,-477.64"/>
@@ -489,7 +525,7 @@
 </g>
 </g>
 <!-- program~example_p&#45;&gt;proc~pure_subroutine -->
-<g id="call~~graph~~CallGraph_edge14" class="edge">
+<g id="call~~graph~~CallGraph_edge18" class="edge">
 <title>program~example_p&#45;&gt;proc~pure_subroutine</title>
 <path fill="none" stroke="#ff00bf" d="M91,-180.13C110.94,-180.13 136.7,-180.13 159.88,-180.13"/>
 <polygon fill="#ff00bf" stroke="#ff00bf" points="159.86,-183.64 169.86,-180.14 159.86,-176.64 159.86,-183.64"/>
@@ -504,19 +540,19 @@
 </g>
 </g>
 <!-- program~simple&#45;&gt;proc~debug_loc -->
-<g id="call~~graph~~CallGraph_edge15" class="edge">
+<g id="call~~graph~~CallGraph_edge19" class="edge">
 <title>program~simple&#45;&gt;proc~debug_loc</title>
 <path fill="none" stroke="#ff007f" d="M83.42,-270.98C108.41,-277.45 146.36,-287.28 175.78,-294.9"/>
 <polygon fill="#ff007f" stroke="#ff007f" points="174.58,-298.2 185.13,-297.32 176.33,-291.43 174.58,-298.2"/>
 </g>
 <!-- program~simple&#45;&gt;proc~reset -->
-<g id="call~~graph~~CallGraph_edge16" class="edge">
+<g id="call~~graph~~CallGraph_edge20" class="edge">
 <title>program~simple&#45;&gt;proc~reset</title>
 <path fill="none" stroke="#ff007f" d="M83.42,-264.13C106.22,-264.13 139.8,-264.13 167.86,-264.13"/>
 <polygon fill="#ff007f" stroke="#ff007f" points="167.58,-267.64 177.58,-264.14 167.58,-260.64 167.58,-267.64"/>
 </g>
 <!-- program~simple&#45;&gt;proc~set -->
-<g id="call~~graph~~CallGraph_edge17" class="edge">
+<g id="call~~graph~~CallGraph_edge21" class="edge">
 <title>program~simple&#45;&gt;proc~set</title>
 <path fill="none" stroke="#ff007f" d="M83.42,-257.29C107.74,-250.99 144.35,-241.51 173.42,-233.98"/>
 <polygon fill="#ff007f" stroke="#ff007f" points="174.28,-237.37 183.09,-231.48 172.53,-230.6 174.28,-237.37"/>
@@ -531,7 +567,7 @@
 </g>
 </g>
 <!-- program~test1&#45;&gt;proc~pure_subroutine~2 -->
-<g id="call~~graph~~CallGraph_edge18" class="edge">
+<g id="call~~graph~~CallGraph_edge22" class="edge">
 <title>program~test1&#45;&gt;proc~pure_subroutine~2</title>
 <path fill="none" stroke="#ff003f" d="M83.42,-138.13C104.14,-138.13 133.76,-138.13 160.06,-138.13"/>
 <polygon fill="#ff003f" stroke="#ff003f" points="159.96,-141.64 169.96,-138.14 159.96,-134.64 159.96,-141.64"/>
@@ -634,7 +670,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2026-07-21T11:50:34.704443+0000             </p>
+ on 2026-07-21T12:29:56.869810+0000             </p>
           </div>
         </div>
         <br>
