@@ -5,7 +5,7 @@ license     = "BSD 3-Clause License"
 author      = "Seyed Ali Ghasemi"
 maintainer  = "info@gha3mi.com"
 homepage    = "https://github.com/gha3mi/fordebug"
-copyright   = "Copyright 2023-2025, Seyed Ali Ghasemi"
+copyright   = "Copyright 2023-2026, Seyed Ali Ghasemi"
 categories  = ["debugging"]
 keywords    = ["Fortran", "debug", "pure", "error", "warning", "info", "handling"]
 
@@ -52,7 +52,7 @@ main="test1.f90"
 
 [extra.ford]
 project             = "ForDebug"
-year                = "2023-2025"
+year                = "2023-2026"
 project_github      = "https://github.com/gha3mi/fordebug"
 author              = "Seyed Ali Ghasemi"
 email               = "info@gha3mi.com"
