@@ -62,8 +62,8 @@ contains
          ! Print Rank 0 real64 with a message and format. message and format are optional
          call pwrite(message="y(i) = ", R0r64=y(i), format="(a,f7.3)")
 
-         ! Write Rank 0 real64 with a message and format to a file. message and format are optional
-         call pwrite(message="y(i) = ", R0r64=y(i), format="(a,f7.3)", file="example/example_p.txt", access="append")
+         ! ! Write Rank 0 real64 with a message and format to a file. message and format are optional
+         ! call pwrite(message="y(i) = ", R0r64=y(i), format="(a,f7.3)", file="example/example_p.txt", access="append")
       end do
 
       ! stop pure timer
