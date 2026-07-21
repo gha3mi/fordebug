@@ -20,6 +20,7 @@ contains
       real(rk), intent(out), allocatable :: y(:)
       integer                            :: i
       type(timer)                        :: t
+      real(rk)                           :: yi
 
       ! Print Rank 0 real64 with a message and format. message and format are optional
       call pwrite(message="x = ", R0r64=x, format="(a,f7.3)")
@@ -49,9 +50,10 @@ contains
 #if defined (__NVCOMPILER) || defined(NOPURE_DEBUG)
       do i=2,n
 #else
-      do concurrent (i=2:n)
+      do concurrent (i=2:n) shared(x, y) local(yi)
 #endif
-         y(i) = y(i-1) + x
+         yi = real(i-1, kind=rk) * x
+         y(i) = yi
 
          ! Print Rank 0 real64 with a message and format. message and format are optional
          call pwrite(message="y(i) = ", R0r64=y(i), format="(a,f7.3)")
