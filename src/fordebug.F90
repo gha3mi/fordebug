@@ -150,7 +150,7 @@ contains
       character(*), intent(in) :: file
       integer,      intent(in) :: line
       character(len=256) :: s
-      write(s,'(a,":",i0)') trim(file), line
+      write(s,"(a,':',i0)") trim(file), line
    end function debug_loc
    !===============================================================================
 
@@ -174,24 +174,24 @@ contains
 
       if (this%dbg .and. .not. this%ok) then
          select case (this%severity)
-          case (ERROR);   sev_letter = 'E'; color = RED
-          case (WARNING); sev_letter = 'W'; color = YEL
-          case (INFO);    sev_letter = 'I'; color = BLU
-          case default;   sev_letter = 'N'; color = GRY
+          case (ERROR);   sev_letter = "E"; color = RED
+          case (WARNING); sev_letter = "W"; color = YEL
+          case (INFO);    sev_letter = "I"; color = BLU
+          case default;   sev_letter = "N"; color = GRY
          end select
 
-         write(code_str,'(i0)') this%code
+         write(code_str,"(i0)") this%code
 
-         line = color//'['//sev_letter//trim(code_str)//']'//RST//' ' // &
-            '('//GRY//trim(this%location)//RST//') ' // &
-            trim(this%category)//': ' // &
+         line = color//"["//sev_letter//trim(code_str)//"]"//RST//" " // &
+            "("//GRY//trim(this%location)//RST//") " // &
+            trim(this%category)//": " // &
             trim(this%message)
 
          if (len_trim(this%suggestion) > 0) then
-            line = line//' ['//trim(this%suggestion)//']'
+            line = line//" ["//trim(this%suggestion)//"]"
          end if
 
-         write(*,'(a)') trim(line)
+         write(*,"(a)") trim(line)
       end if
    end subroutine print_error
    !===============================================================================
